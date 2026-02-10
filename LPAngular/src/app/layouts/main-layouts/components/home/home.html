@@ -1,0 +1,54 @@
+<div class="containerHome">
+  <img src="/background/solar1.jpg" alt="background_home" class="background_home">
+  <div class="container texto">
+    <div class="d-flex justify-content-between">
+
+      <div class="d-flex align-items-center">
+
+        <div class="d-flex align-items-center gap-1">
+          <img src="/language/Flat_Spain.png" alt="imagen_bandera" class="imageFlat">
+          <button type="button" class="btn btn_language">
+            IDIOMA
+            <i class="bi bi-chevron-compact-down"></i>
+          </button>
+        </div>
+
+        <div>
+          <button type="button" class="btn">
+            CONTACTO
+            <i class="bi bi-chevron-compact-down"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="d-flex align-items-center divIconLicor">
+        <img src="/icons/iconLicor1.png" alt="iconLicor" class="iconLicor">
+        <p class="m-0 h1 title">LA PARADA</p>
+      </div>
+
+      <div class="d-flex align-items-center gap-4">
+        <button type="button" class="btn icon_search"><i class="bi bi-search fs-5"></i></button>
+        <button type="button" class="btn icon_account" (click)="toggleLogin()"><i class="bi bi-person fs-5"></i></button>
+        <button type="button" class="btn icon_cart"><i class="bi bi-cart fs-5"></i></button>
+      </div>
+
+    </div>
+
+    <div class="mt-3">
+      <ol class="d-flex align-items-center justify-content-center m-auto gap-4">
+        <li><button type="button" class="btn list-btn">Enlace 1</button></li>
+        <li><button type="button" class="btn list-btn">Enlace 1</button></li>
+        <li><button type="button" class="btn list-btn">Enlace 1</button></li>
+        <li><button type="button" class="btn list-btn">Enlace 1</button></li>
+        <li><button type="button" class="btn list-btn">Enlace 1</button></li>
+        <li><button type="button" class="btn list-btn">Enlace 1</button></li>
+      </ol>
+    </div>
+  </div>
+  <a href="/panelControl" class="btn titulo position-absolute">LICORERÍA</a>
+</div>
+
+@if (openLogin() == true) {
+  <app-login (openLoginDesdeHome)="toggleLogin()"></app-login>
+}
