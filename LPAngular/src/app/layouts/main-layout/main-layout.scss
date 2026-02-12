@@ -1,0 +1,91 @@
+.icon_notifications,
+.icon_account,
+.icon_cart {
+  cursor: pointer;
+  transition: 0.2s ease;
+
+}
+.icon_notifications:hover,
+.icon_account:hover,
+.icon_cart:hover {
+  box-shadow: 2px 2px 2px #2b063c;
+  color: #a14fc1;
+  background: white;
+  transform: scaleY(1.1);
+  transition: 0.2s ease;
+}
+.imgLogo {
+  background-size: cover;
+  object-fit: cover;
+  width: 100%;
+  max-width: 100px;
+}
+.navBarHome {
+  box-sizing: border-box;
+  position: absolute;
+  width: 95%;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 2px 2px 20px 2px #949494;
+}
+.navBarHome a {
+  font-weight: bold;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.contorno {
+  background: linear-gradient(to bottom left, #000000, #2e004f, #a14fc1);
+}
+.imgHome {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.contenedorImg {
+  position: relative;
+  width: 100%;
+  height: 69.5vh;
+  overflow: hidden;
+}
+.footer_flotante {
+   margin-top: -50px;
+}
+.footer {
+  background-color: #F5F5F5;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.15);
+}
+.btnEstilo1,.btnEstilo2 {
+  border: none;
+}
+.btnEstilo1:hover {
+  color: white;
+  border:1px solid transparent;
+  box-shadow: 2px 2px 2px #2b063c;
+  background-color: #5b9ca1;
+  transition: 0.3s ease;
+}
+.btnEstilo2:hover {
+  color: white;
+  border:1px solid black;
+  box-shadow: 2px 2px 2px #2b063c;
+  background-color: #183646;
+  transition: 0.3s ease;
+}
+.efectoEnlace {
+  padding: 10px 10px;
+  color: #6a2889;
+}
+.efectoEnlace:hover {
+  box-shadow: 2px 2px 2px #1b1e1f;
+  color: #5da2c5;
+}
+.title {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+  text-shadow: 10px 40px 15px rgba(0,0,0,0.5);
+  letter-spacing: 10px;
+}

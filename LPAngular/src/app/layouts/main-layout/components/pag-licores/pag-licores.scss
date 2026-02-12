@@ -1,0 +1,146 @@
+.tablaFiltro {
+  background-color: #eeece6;
+  border-radius: 30px;
+  box-shadow: 1px 1px 30px 10px #615f5f;
+}
+
+.hr {
+  width: 1px;
+  height: 20px;
+  background-color: #333;
+}
+.columnas {
+  width: 100%;
+}
+.cardProducto {
+  background-color: #ffffff;
+  border: 1px solid #d1d0d0;
+  margin-bottom: 100px;
+  transition: transform 0.3s;
+}
+.cardProducto:hover {
+  transform: scale(1.05);
+  box-shadow: 1px 4px 8px 2px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.imagen {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+}
+.img1, .img2 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+.img2 {
+  opacity: 0;
+}
+.imagen:hover .img2 {
+  opacity: 1;
+}
+.viñetas {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.imagen:hover .viñetas {
+  opacity: 1;
+}
+.circuloViñeta {
+  width: 30px;
+  height: 30px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.circuloViñeta:hover {
+  transform: scale(1.05);
+  background: black;
+  color: white;
+}
+.btnAgregarCarrito {
+  background-color: #0059ff;
+  color: white;
+  border: none;
+  padding: 5px;
+}
+.btnAgregarCarrito:hover {
+  background-color: #0033af;
+}
+.footer {
+  background: linear-gradient(to bottom left, #1a001a, #4b0064, #a14fc1);
+}
+.footerGap {
+  gap: 300px;
+}
+.cajaCategoria {
+  border: 1px solid #d1d0d0;
+  width: 100%;
+  max-width: 300px;
+}
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  width: 100%;
+  max-width: 160px;
+  height: 130px;
+}
+.efectoEnlace {
+  box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.efectoEnlace:hover {
+  transform: scale(1.05);
+}
+.iconoFacebook {
+  color: #313d97;
+}
+.iconoInsta {
+  color: hotpink;
+}
+.iconoTwitch {
+  color: #5f3269;
+}
+@media (max-width: 1200px) {
+  .tablaProductos {
+    width: 66%;
+  }
+}
+@media (max-width: 1070px) {
+  .tablaProductos {
+    width: 65%;
+  }
+  .icon_search {
+    display: none;
+  }
+  .iconsRedSocial {
+    display: none;
+  }
+}
+
+@media (max-width: 375px) {
+  .tablaFiltro {
+    display: none;
+  }
+  .tablaProductos {
+    width: 20%;
+  }
+}
+
+@media (max-width: 960px) {
+  .tablaProductos {
+    width: 65%;
+  }
+}

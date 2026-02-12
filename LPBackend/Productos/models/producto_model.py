@@ -28,6 +28,7 @@ class ProductoModel(models.Model):
     precioVenta = models.FloatField(blank=False, null=False, verbose_name="Precio de venta (Bs)", validators=[validarPrecio])
     proveedor = models.ForeignKey("ProveedorModel",on_delete=models.SET_NULL, blank=False, null=True, verbose_name="Proveedor")
     marca = models.CharField(unique=True, max_length=20, blank=False, null=False,verbose_name="Marca")
+    descripcion = models.TextField(max_length=100,blank=True, null=True, verbose_name="Descripción")
 
 
     def save(self, *args, **kwargs):

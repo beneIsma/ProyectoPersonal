@@ -1,1 +1,37 @@
-<p>layouts works!</p>
+<div class="layaoutPanel">
+  <div class="d-flex align-items-center justify-content-center gap-2 fondoEnvio py-2">
+    <i class="bi bi-truck text-white"></i>
+    <p class="m-0 text-white">Envío gratis</p>
+  </div>
+
+  <div class="bg-white">
+    <div class="d-flex align-items-center py-3 gap-5 ms-5 me-5">
+      <div class="d-flex align-items-center justify-content-center mb-4">
+        <a href=""><img src="/background/LaParada.png" alt="imagen" class="imgLogo"></a>
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Qué necesita buscar..." aria-label="Recipient’s username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
+      </div>
+      <div class="d-flex align-items-center gap-4">
+        <button type="button" class="btn icon_account text-black mb-3" (click)="toggleLogin()"><i class="bi bi-person fs-5"></i></button>
+        <button type="button" class="btn icon_notifications text-black mb-3"><i class="bi bi-bell fs-5"></i></button>
+        <button type="button" class="btn icon_cart text-black mb-3"><i class="bi bi-cart fs-5"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="navBarCustom py-2 bg-white">
+    <ol class="d-flex align-items-center justify-content-center flex-wrap m-auto py-2">
+      @for (c of categorias(); track c.nombre) {
+        <li>
+          <a href="{{c.nombre}}" class="btn list-btn">{{ c.nombre }}</a>
+        </li>
+      }
+    </ol>
+  </div>
+</div>
+
+@if (openLogin() == true) {
+  <app-login (openLoginDesdeHome)="toggleLogin()"></app-login>
+}
+

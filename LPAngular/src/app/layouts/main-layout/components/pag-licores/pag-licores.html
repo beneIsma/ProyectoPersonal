@@ -1,0 +1,58 @@
+<app-layouts></app-layouts>
+<div class="ms-5 mt-5 mb-3">
+  <p class="m-0">Licores</p>
+</div>
+<p class="m-0 fs-1 ms-5 fw-bold">Licores</p>
+<div class="d-flex align-items-center justify-content-center gap-5">
+  @for (s of seccionLicores(); track s.nombre) {
+    <div class="cajaCategoria">
+      <div class="d-flex flex-row align-items-center ms-2 gap-2">
+        <img src="{{s.imagen}}" alt="{{s.categoria}}" class="img py-2">
+        <a href="" class="text-decoration-none fs-4">{{s.nombre}}</a>
+      </div>
+    </div>
+  }
+
+</div>
+<div class="d-flex align-items-center justify-content-end mt-4 mb-4 me-5 gap-2">
+  <p class="m-0">Ordenar por:</p>
+  <select>
+    <option value="">Mejor vendido</option>
+    <option value="Relevantes">Relevantes</option>
+    <option value="Más votados">Más votados</option>
+  </select>
+</div>
+<div class="row columnas">
+  <div class="col-3 tablaFiltro ms-5 mt-2">
+    <p class="h1 ms-5 mt-5">Filtros</p>
+  </div>
+
+  <div class="col-8 ms-5 mt-2">
+    <div class="row row-cols-2 row-cols-md-4 g-3 mt-5">
+      @for (p of productos(); track p.slug) {
+        <div class="col">
+          <div class="cardProducto">
+            <div class="imagen">
+              <img src="{{p.imagen}}" alt="{{p.nombre}}" class="img1">
+              <img src="{{p.imagen}}" alt="{{p.nombre}}" class="img2">
+              <div class="viñetas">
+                <div class="circuloViñeta"><i class="bi bi-bag-check"></i></div>
+                <div class="circuloViñeta"><i class="bi bi-heart"></i></div>
+                <div class="circuloViñeta"><i class="bi bi-eye"></i></div>
+                <div class="circuloViñeta"><i class="bi bi-shuffle"></i></div>
+              </div>
+            </div>
+            <div class="d-flex flex-column gap-1 p-1">
+              <p class="text-primary">{{p.descripcion}}</p>
+              <p class="text-info">{{p.nombre}}</p>
+              <p class="fs-5">{{p.precioVenta}}</p>
+              <button class="btnAgregarCarrito">Agregar al carrito</button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
