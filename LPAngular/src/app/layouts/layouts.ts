@@ -1,5 +1,5 @@
 import {Component, OnInit, signal} from '@angular/core';
-import {Login} from './main-layout/components/login/login';
+import {Login} from './main-layout/components/admin/login/login';
 import {PanelCategoriasService} from '../core/services/panelCategorias/panel-categorias.service';
 
 @Component({

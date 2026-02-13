@@ -6,7 +6,7 @@ from django.template.defaultfilters import join
 import re
 
 EMAIL_REGEX = re.compile(r"[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]{2,}")
-PASSWORD_REGEX = re.compile(r"(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*[^a-zA-Z0-9])[a-zA-Z\d]{6,}")
+PASSWORD_REGEX = re.compile(r"(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*[^a-zA-Z0-9])[a-zA-Z\d]{6,12}")
 
 class CustomUser(BaseUserManager):
     def create_user(self, email=None, password=None, **extra_fields):
@@ -43,6 +43,7 @@ class Users(AbstractBaseUser, PermissionsMixin):
     nombre = models.CharField(max_length=20, null=False, blank=False, verbose_name="Nombre de usuario")
     apellidos = models.CharField(max_length=50, null=False, blank=False, verbose_name= "Apellidos")
     email = models.CharField(unique=True, max_length=100, null=False, blank=False, verbose_name="Email")
+    personalInfo = models.ForeignKey("InfoPersonal", on_delete=models.CASCADE, blank=True, null=True)
     is_active = models.BooleanField(default=True, verbose_name="¿Usuario activo?")
     rol = models.ForeignKey("Roles", on_delete=models.SET_NULL, blank=False, null=True, verbose_name="Rol usuario")
     is_staff = models.BooleanField(default=False, verbose_name="¿Tiene permisos de staff?")

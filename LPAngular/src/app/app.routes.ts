@@ -16,5 +16,5 @@ export const routes: Routes = [
     children:[
       {path:'contact', loadComponent: () => import ("./layouts/layouts").then(c=>c.Layouts)}
     ]},
-  {path:'admin', loadComponent: () => import("./layouts/main-layout/components/admin/admin").then(c=>c.Admin)}
+  {path:'admin', loadComponent: () => import("./layouts/main-layout/components/admin/panel-control-admin/panel-control-admin").then(c=>c.PanelControlAdmin)}
 ];

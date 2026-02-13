@@ -1,9 +1,25 @@
 .tablaFiltro {
-  background-color: #eeece6;
+  background: linear-gradient(
+      145deg,
+      #a4a9bd 0%,
+      #cdb6e3 35%,
+      #5e58a5 65%,
+      #a4a9bd 100%
+  );
   border-radius: 30px;
-  box-shadow: 1px 1px 30px 10px #615f5f;
+  box-shadow: 1px 1px 30px 5px #615f5f;
 }
-
+.tablaProductos {
+  background: linear-gradient(
+      145deg,
+      #a4a9bd 0%,
+      #cdb6e3 35%,
+      #5e58a5 65%,
+      #a4a9bd 100%
+  );
+  box-shadow: 1px 1px 30px 5px #615f5f;
+  border-radius: 30px;
+}
 .hr {
   width: 1px;
   height: 20px;
@@ -15,7 +31,7 @@
 .cardProducto {
   background-color: #ffffff;
   border: 1px solid #d1d0d0;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
   transition: transform 0.3s;
 }
 .cardProducto:hover {

@@ -1,5 +1,8 @@
 # Django
 
+### Django personalizado 
+- pip install django-jazzmin
+- Dentro de settings antes de admin, instalar 'jazzmin'
 ### Pemitir a Angular que Django sea llamado desde fuera
 - python manage.py runserver 0.0.0.0:8000
 ### Comando para crear un venv o .venv

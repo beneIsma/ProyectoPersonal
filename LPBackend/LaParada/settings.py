@@ -46,6 +46,7 @@ EXTENSIONES_BLACKLIST = [".ru", ".xyz"]
 
 INSTALLED_APPS = [
     'corsheaders',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -64,7 +65,7 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),#Tiempo de vida del token
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),#Si se caduca el de arriba este se usa como respaldo para aumentar el tiempo de vida del token
     'ROTATE_REFRESH_TOKENS': False, #Si tuviera True mi sesion se caducaria al iniciar sesion en otro pc
-    'BLACKLIST_AFTER_ROTATION': True,#Si ya existe ese token y se caduca, se guarda en una lista negra para no volver a usarla
+    'BLACKLIST_AFTER_ROTATION': False,#(En True) Si ya existe ese token y se caduca, se guarda en una lista negra para no volver a usarla
     'AUTH_HEADER_TYPES': ('Bearer',)#Es la forma de comunicar el front con el back, para el envio del token
 }
 
