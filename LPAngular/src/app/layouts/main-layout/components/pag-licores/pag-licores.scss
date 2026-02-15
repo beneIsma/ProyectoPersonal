@@ -1,3 +1,8 @@
+.fondo {
+  background-image: url('/background/fondom.jpg');
+  background-size: cover;
+  background-position: top;
+}
 .tablaFiltro {
   background: linear-gradient(
       145deg,
@@ -35,7 +40,7 @@
   transition: transform 0.3s;
 }
 .cardProducto:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   box-shadow: 1px 4px 8px 2px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -102,9 +107,27 @@
   gap: 300px;
 }
 .cajaCategoria {
-  border: 1px solid #d1d0d0;
+  border: 1px solid #000000;
+  border-radius: 30px;
   width: 100%;
   max-width: 300px;
+  background: linear-gradient(to bottom, #470c47, #552864, #b368d0);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+.elementosCategoria {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-direction: row;
+}
+.letraCategoria:hover {
+  color: #b300ff;
+  text-shadow: 2px 2px 4px rgba(19, 11, 27, 0.6);
+}
+
+.letraCategoria {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(168, 73, 255, 0.6);
 }
 .img {
   background-size: cover;
@@ -129,12 +152,34 @@
 .iconoTwitch {
   color: #5f3269;
 }
+@media (max-width: 1900px) {
+  .cajaCategoria {
+    width: 220px;
+  }
+  .letraCategoria {
+    margin-right: 40px;
+  }
+}
+@media (max-width: 1420px) {
+  .cajaCategoria {
+    width: 160px;
+  }
+  .elementosCategoria {
+    flex-direction: column;
+  }
+  .letraCategoria {
+    margin-left: 40px;
+  }
+}
 @media (max-width: 1200px) {
   .tablaProductos {
     width: 66%;
   }
 }
 @media (max-width: 1070px) {
+  .cajaCategoria {
+    width: 120px;
+  }
   .tablaProductos {
     width: 65%;
   }
@@ -145,7 +190,39 @@
     display: none;
   }
 }
-
+@media (max-width: 960px) {
+  .tablaProductos {
+    width: 60%;
+  }
+}
+@media (max-width: 810px) {
+  .cajaCategoria {
+    width: 90px;
+  }
+  .letraCategoria {
+    font-size: 10px;
+  }
+}
+@media (max-width: 640px) {
+  .tablaProductos {
+    width: 55%;
+  }
+  .cajaCategoria {
+    width: 70px;
+  }
+}
+@media (max-width: 535px) {
+  .titleLicor {
+    display: none;
+  }
+  .tablaProductos {
+    width: 50%;
+  }
+  .cajaCategoria {
+    width: 60px;
+    border-radius: 1px;
+  }
+}
 @media (max-width: 375px) {
   .tablaFiltro {
     display: none;
@@ -155,8 +232,3 @@
   }
 }
 
-@media (max-width: 960px) {
-  .tablaProductos {
-    width: 65%;
-  }
-}

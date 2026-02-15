@@ -1,0 +1,44 @@
+.popup {
+  width: 40%;
+  height: 27.3%;
+  background-color: rgba(255, 255, 255, 0.98);
+  top: 5.81%;
+  margin-bottom: 3px;
+  margin-left: 10px;
+  z-index: 999;
+  position: absolute;
+  animation: fadeIn 0.3s ease;
+  .efectoEnlace {
+    padding: 10px 10px;
+    color: #6a2889;
+  }
+  .efectoEnlace:hover {
+    box-shadow: 2px 2px 2px #1b1e1f;
+    color: #5da2c5;
+  }
+  .elementosEnlace {
+    gap: 10px;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scaleX(1.6) translateX(20%);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (max-width: 1100px) {
+  .popup {
+    margin-top: 40px;
+    height: 50%;
+  }
+}
+@media (max-width: 375px) {
+  .popup {
+    margin-top: 40px;
+    height: 50%;
+  }
+}

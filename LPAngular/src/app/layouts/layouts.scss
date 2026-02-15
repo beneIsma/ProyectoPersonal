@@ -9,7 +9,7 @@
   background-size: cover;
   object-fit: cover;
   width: 100%;
-  max-width: 100px;
+  max-width: 300px;
 }
 .cajitaEnvio {
   background: #a52bda;
@@ -90,4 +90,27 @@ ol {
   width: 100%;
   z-index: 999;
 }
+.btnLogo {
+  border:none;
+}
+.barra {
+  display: none;
 
+}
+@media (max-width: 702px) {
+  .barra {
+    display: block;
+  }
+  .imgLogo {
+    max-width: 500px;
+  }
+  .barraMenu {
+    font-size: 35px;
+  }
+  .navBarCustom {
+    display: none;
+  }
+  .icon_account{
+    display: none;
+  }
+}

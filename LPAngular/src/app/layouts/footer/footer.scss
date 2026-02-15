@@ -3,6 +3,8 @@
 }
 .footerGap {
   gap: 300px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 .cajaCategoria {
   border: 1px solid #d1d0d0;
@@ -31,4 +33,19 @@
 }
 .iconoTwitch {
   color: #5f3269;
+}
+.iconItems {
+  gap: 20px;
+}
+@media (max-width: 1132px) {
+  .footerGap {
+    gap: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+@media (max-width: 865px) {
+  .iconItems {
+    gap: 2px;
+  }
 }

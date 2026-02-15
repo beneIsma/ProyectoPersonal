@@ -4,12 +4,13 @@ import {ProductosService} from '../../../../core/services/productos/productos.se
 import {Layouts} from '../../../layouts';
 import {CategoriaLicoresService} from '../../../../core/services/categoriaLicores/categoria-licores.service';
 import {Footer} from '../../../footer/footer';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-pag-licores',
   imports: [
     Layouts,
-    Footer
+    Footer,
   ],
   templateUrl: './pag-licores.html',
   styleUrl: './pag-licores.scss',
@@ -47,6 +48,8 @@ export class PagLicores implements OnInit {
       complete: () => {}
     })
   }
+
+
 }
 
 interface ProductoInterface {
@@ -66,3 +69,5 @@ interface seccionesLicores {
   nombre:string;
   imagen:string;
 }
+
+

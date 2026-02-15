@@ -7,10 +7,11 @@
   <div class="bg-white">
     <div class="d-flex align-items-center py-3 gap-5 ms-5 me-5">
       <div class="d-flex align-items-center justify-content-center mb-4">
-        <a href=""><img src="/background/LaParada.png" alt="imagen" class="imgLogo"></a>
+        <button type="button" class="btn btnIconNavBar barra" (click)="toggleBarra()"><i class="bi bi-justify iconItemNavBar barraMenu"></i></button>
+        <button type="button" class="btn btnLogo" routerLink=""><img src="/background/LaParada.png" alt="imagen" class="imgLogo"></button>
       </div>
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Qué necesita buscar..." aria-label="Recipient’s username" aria-describedby="button-addon2">
+        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Recipient’s username" aria-describedby="button-addon2">
         <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
       </div>
       <div class="d-flex align-items-center gap-4">
@@ -33,5 +34,9 @@
 
 @if (openLogin() == true) {
   <app-login (openLoginDesdeHome)="toggleLogin()"></app-login>
+}
+
+@if (openBarra() == true) {
+  <app-menu-productos-movil (openBarraDesdeLayout)="toggleBarra()"></app-menu-productos-movil>
 }
 

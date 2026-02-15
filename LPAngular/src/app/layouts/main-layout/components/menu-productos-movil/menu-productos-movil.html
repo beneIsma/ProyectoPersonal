@@ -1,0 +1,17 @@
+<div class="popup">
+  <ol class="d-flex flex-column align-items-center justify-content-center">
+    @for (c of categorias(); track c.nombre) {
+      <li>
+        <a href="{{c.nombre}}" class="btn list-btn">{{ c.nombre }}</a>
+      </li>
+    }
+  </ol>
+  <hr>
+  <div class="d-flex flex-column">
+    <button type="button" class="btn fs-1 fw-bold textoBottomHr" (click)="toggleLogin()">Iniciar sesión</button>
+  </div>
+</div>
+
+@if (openLogin() == true) {
+  <app-login (openLoginDesdeHome)="toggleLogin()"></app-login>
+}

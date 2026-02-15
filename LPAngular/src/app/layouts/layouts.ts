@@ -1,11 +1,16 @@
 import {Component, OnInit, signal} from '@angular/core';
 import {Login} from './main-layout/components/admin/login/login';
 import {PanelCategoriasService} from '../core/services/panelCategorias/panel-categorias.service';
+import {RouterLink, RouterLinkActive} from '@angular/router';
+import {BarraMenuMovil} from './main-layout/components/menuHome-movil/barra-menu-movil';
+import {MenuProductosMovil} from './main-layout/components/menu-productos-movil/menu-productos-movil';
 
 @Component({
   selector: 'app-layouts',
   imports: [
     Login,
+    RouterLink,
+    MenuProductosMovil,
   ],
   templateUrl: './layouts.html',
   styleUrl: './layouts.scss',
@@ -16,6 +21,11 @@ export class Layouts implements OnInit {
 
   toggleLogin = () => {
     this.openLogin.update(state => !state);
+  }
+
+  openBarra = signal<boolean>(false);
+  toggleBarra = () => {
+    this.openBarra.update(state => !state);
   }
 
   constructor(
@@ -36,6 +46,8 @@ export class Layouts implements OnInit {
       complete: () => {}
     })
   }
+
+
 
 }
 

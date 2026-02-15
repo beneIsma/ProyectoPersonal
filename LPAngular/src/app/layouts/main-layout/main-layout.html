@@ -2,19 +2,33 @@
   <div class="d-flex align-items-center justify-content-center">
     <a href=""><img src="/background/LaParada.png" alt="imagen" class="imgLogo"></a>
   </div>
-  <div class="navBarHome mt-2 ms-5 me-5">
-    <div class="d-flex align-items-center justify-content-between me-5 ms-5">
+  <div class="navBarHome mt-2">
+    <div class="d-flex align-items-center justify-content-between me-3">
 
-      <div>
-        <img src="/background/LaParada.png" alt="imagen" class="imgLogo">
+      <div class="d-flex align-items-center">
+        <button type="button" class="btn btnIconNavBar" (click)="toggleBarra()"><i class="bi bi-justify iconItemNavBar"></i></button>
+        <img src="/background/LaParada.png" alt="imagen" class="imgLogo1">
+        <hr class="lineVertical me-4">
       </div>
-      <div class="d-flex align-items-center gap-5">
-        <a href="home/" class="text-decoration-none fs-5 fw-bold efectoEnlace">HOME</a>
-        <a href="products/" class="text-decoration-none text-black fs-5 fw-bold efectoEnlace">PRODUCTS</a>
-        <a href="about/" class="text-decoration-none text-black fs-5 fw-bold efectoEnlace">ABOUT</a>
-        <a href="contact/" class="text-decoration-none text-black fs-5 fw-bold efectoEnlace">CONTACTS</a>
-        <a href="blog/" class="text-decoration-none text-black fs-5 fw-bold efectoEnlace">BLOG</a>
+      <p class="m-0 titleLicoreria">LICORERÍA</p>
+      <div class="btnBuyAndViewProduct">
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="d-flex align-items-center justify-content-around gap-2">
+            <a href="" class="btn btnEstilo1 buy">COMPRAR AHORA</a>
+            <a href="/Licores" class="btn btnEstilo2 view">VER PRODUCTOS</a>
+          </div>
+        </div>
       </div>
+      <div class="barra">
+        <div class="d-flex align-items-center gap-5">
+          <a href="home/" class="text-decoration-none fs-5 fw-bold efectoEnlace">HOME</a>
+          <a href="/Licores" class="text-decoration-none text-black fs-5 fw-bold efectoEnlace">PRODUCTS</a>
+          <a href="about/" class="text-decoration-none text-black fs-5 fw-bold efectoEnlace">ABOUT</a>
+          <a href="/contact" class="text-decoration-none text-black fs-5 fw-bold efectoEnlace">CONTACTS</a>
+          <a href="blog/" class="text-decoration-none text-black fs-5 fw-bold efectoEnlace">BLOG</a>
+        </div>
+      </div>
+
       <div class="d-flex align-items-center gap-4">
         <button type="button" class="btn icon_account text-black mb-3" (click)="toggleLogin()"><i class="bi bi-person fs-5"></i></button>
         <button type="button" class="btn icon_notifications text-black mb-3"><i class="bi bi-bell fs-5"></i></button>
@@ -22,15 +36,18 @@
       </div>
 
     </div>
-    <div class="contenedorImg">
-      <img src="/background/solar1.jpg" alt="imagen" class="imgHome">
-      <p class="title position-absolute fw-bold text-white">LA PARADA</p>
-    </div>
-
-    <div class="d-flex align-items-center justify-content-center position-relative footer_flotante">
-      <div class="d-flex align-items-center justify-content-around gap-2 footer">
-        <a href="" class="btn btnEstilo1">COMPRAR AHORA</a>
-        <a href="/Licores" class="btn btnEstilo2">VER PRODUCTOS</a>
+    <div [ngClass]="openBarra()?'position-absolute':'position-relative'">
+      <div class="contenedorImg">
+        <img src="/background/solar1.jpg" alt="imagen" class="imgHome">
+        <p class="title position-absolute fw-bold text-white">LA PARADA</p>
+      </div>
+      <div class="footerF">
+        <div class="d-flex align-items-center justify-content-center position-relative footer_flotante">
+          <div class="d-flex align-items-center justify-content-around gap-2 footer">
+            <a href="" class="btn btnEstilo1">COMPRAR AHORA</a>
+            <a href="/Licores" class="btn btnEstilo2">VER PRODUCTOS</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -39,4 +56,7 @@
 
 @if (openLogin() == true) {
   <app-login (openLoginDesdeHome)="toggleLogin()"></app-login>
+}
+@if (openBarra() == true) {
+  <app-menuHome-movil (openBarraDesdeMainLayout)="toggleBarra()"></app-menuHome-movil>
 }
