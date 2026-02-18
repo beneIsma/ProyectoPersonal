@@ -44,7 +44,7 @@
                 <p class="text-primary">{{p.descripcion}}</p>
                 <p class="text-info">{{p.nombre}}</p>
                 <p class="fs-5">{{p.precioVenta}}</p>
-                <button class="btnAgregarCarrito">Agregar al carrito</button>
+                <button class="btnAgregarCarrito" (click)="carritoService.agregarProducto(p)">Agregar al carrito</button>
               </div>
             </div>
           </div>

@@ -5,6 +5,7 @@ import {Layouts} from '../../../layouts';
 import {CategoriaLicoresService} from '../../../../core/services/categoriaLicores/categoria-licores.service';
 import {Footer} from '../../../footer/footer';
 import {NgClass} from '@angular/common';
+import {CarritoService} from '../../../../core/services/carrito/carrito.service';
 
 @Component({
   selector: 'app-pag-licores',
@@ -18,7 +19,8 @@ import {NgClass} from '@angular/common';
 export class PagLicores implements OnInit {
   constructor(
     private productosService: ProductosService,
-    private categoriaLicores: CategoriaLicoresService
+    private categoriaLicores: CategoriaLicoresService,
+    public  carritoService:CarritoService,
   ) {}
 
   productos = signal<ProductoInterface[]>([])
@@ -52,16 +54,17 @@ export class PagLicores implements OnInit {
 
 }
 
-interface ProductoInterface {
+export interface ProductoInterface {
   nombre:string,
   slug:string,
   categoria:string ,
-  precioCompra:number,
+  precio:number,
   precioVenta:number,
   proveedor:string,
   marca:string,
   imagen:string,
   descripcion:string,
+  cantidad: number;
 }
 
 interface seccionesLicores {

@@ -1,0 +1,53 @@
+.titleTotal {
+  font-size: 40px;
+  letter-spacing: 1.2px;
+}
+.btnTramitarPedido {
+  background-color: #5f0b6b;
+  transform: scaleY(1.1);
+  transition: 0.2s ease;
+  font-size: 20px;
+  font-family: "Liberation Mono", monospace;
+  color: white;
+  border: none;
+}
+.btnTramitarPedido:focus {
+  outline: none;
+  background-color: #93449e;
+  color: white;
+}
+.btnTramitarPedido:hover {
+  background-color: #93449e;
+}
+
+.imgProducto {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+.btnDecremento p,
+.btnIncremento p {
+  font-size: 25px;
+  border: none;
+  outline: none;
+}
+
+.btnDecremento:hover{
+  color: red;
+  font-size: 20px;
+}
+.btnIncremento:hover {
+  color: #0095ff;
+}
+.btnCantidad {
+  cursor: unset;
+}
+.btnEliminar {
+  background-color: #c38fcf;
+}
+.btnEliminar:hover {
+  background-color: #80428e;
+  color: white;
+}

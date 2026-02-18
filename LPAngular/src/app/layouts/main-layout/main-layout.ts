@@ -2,13 +2,15 @@ import {Component, signal} from '@angular/core';
 import {Login} from './components/admin/login/login';
 import {BarraMenuMovil} from './components/menuHome-movil/barra-menu-movil';
 import {NgClass} from '@angular/common';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-main-layout',
   imports: [
     Login,
     BarraMenuMovil,
-    NgClass
+    NgClass,
+    RouterLink
   ],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.scss',

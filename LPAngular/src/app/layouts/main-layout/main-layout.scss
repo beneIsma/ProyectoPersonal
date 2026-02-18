@@ -3,15 +3,30 @@
 .icon_cart {
   cursor: pointer;
   transition: 0.2s ease;
-
+  color: white;
+  background-color: #5c067f;
 }
 .icon_notifications:hover,
 .icon_account:hover,
 .icon_cart:hover {
   box-shadow: 2px 2px 2px #2b063c;
-  color: #a14fc1;
+  color: #34054a;
   background: white;
   transform: scaleY(1.1);
+  transition: 0.2s ease;
+}
+.icon_account:focus,
+.icon_cart:focus,
+.icon_notifications:focus {
+  background: #1f6f5d;
+  color: white;
+  transition: 0.2s ease;
+}
+.icon_account:active,
+.icon_cart:active,
+.icon_notifications:active {
+  background: #ffffff;
+  color: black;
   transition: 0.2s ease;
 }
 .imgLogo {
@@ -172,6 +187,7 @@
   }
   .footerF {
     display: none;
+    pointer-events: none;
   }
   .lineVertical {
     display: block;

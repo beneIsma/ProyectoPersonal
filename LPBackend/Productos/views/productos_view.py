@@ -19,6 +19,7 @@ class ProductosView(APIView):
             "precioVenta": p.precioVenta,
             "proveedor": p.proveedor.nombreProveedor,
             "marca": p.marca,
+            "descripcion": p.descripcion,
             "imagen": "" if not p.image.imagen.url else request.build_absolute_uri(p.image.imagen.url)
         }for p in productos]
 

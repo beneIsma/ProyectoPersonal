@@ -1,5 +1,5 @@
 .footer {
-  background: linear-gradient(to bottom left, #1a001a, #4b0064, #a14fc1);
+    background: linear-gradient(to bottom left, #1a001a, #4b0064, #a14fc1);
 }
 .footerGap {
   gap: 300px;
@@ -37,6 +37,7 @@
 .iconItems {
   gap: 20px;
 }
+
 @media (max-width: 1132px) {
   .footerGap {
     gap: 100px;

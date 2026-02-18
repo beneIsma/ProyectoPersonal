@@ -1,0 +1,49 @@
+<div class="d-flex flex-column min-vh-100">
+  <app-layouts></app-layouts>
+  <div class="flex-grow-1 container">
+    <div class="d-flex flex-column align-items-center">
+      <div *ngIf="carritoService.cart.length === 0">
+        <p>No hay artículos en el carrito</p>
+      </div>
+      <div *ngIf="carritoService.cart.length > 1">
+        <p class="mt-2 titleTotal">Total del carrito {{carritoService.totalCarrito()}}€</p>
+      </div>
+
+      <button type="button" class="btn btnTramitarPedido mb-3">Tramitar pedido</button>
+    </div>
+  </div>
+
+
+  <div class="container">
+    @for (p of carritoService.cart; track p.slug) {
+      <hr class="border-1">
+      <div class="row row-cols-md-4">
+        <div class="col mt-2 mb-2">
+          <img src="{{p.imagen}}" alt="{{p.nombre}}" class="imgProducto">
+        </div>
+        <div class="col">
+          <div class="d-flex flex-column align-items-center">
+            <p class="m-0 fs-3 fw-bold mb-5">{{p.nombre}}</p>
+            <p class="m-0">{{p.descripcion}}</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="d-flex flex-row align-items-center justify-content-center gap-3 fs-3">
+            <div><button type="button" class="btn btnDecremento" (click)="carritoService.decrementarProducto(p.slug)"><p class="m-0">-</p></button></div>
+            <div><button type="button" class="btn btnCantidad">{{p.cantidad}}</button></div>
+            <div><button type="button" class="btn btnIncremento" (click)="carritoService.incrementarProducto(p.slug)"><p class="m-0">+</p></button></div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="d-flex flex-column align-items-center">
+            <p class="mb-3 fs-3">{{p.precioVenta}}€</p>
+            <button type="button" class="btn border-1 rounded-2 btnEliminar fs-3" (click)="carritoService.eliminarProducto(p.slug)">Eliminar</button>
+          </div>
+        </div>
+      </div>
+      <hr class="border-1">
+    }
+  </div>
+  <app-footer></app-footer>
+</div>
+

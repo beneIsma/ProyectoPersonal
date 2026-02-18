@@ -2,7 +2,7 @@
   <div class="d-flex align-items-center justify-content-center">
     <a href=""><img src="/background/LaParada.png" alt="imagen" class="imgLogo"></a>
   </div>
-  <div class="navBarHome mt-2">
+  <div class="navBarHome mt-2 ms-5">
     <div class="d-flex align-items-center justify-content-between me-3">
 
       <div class="d-flex align-items-center">
@@ -14,7 +14,7 @@
       <div class="btnBuyAndViewProduct">
         <div class="d-flex align-items-center justify-content-center">
           <div class="d-flex align-items-center justify-content-around gap-2">
-            <a href="" class="btn btnEstilo1 buy">COMPRAR AHORA</a>
+            <a href="/carrito" class="btn btnEstilo1 buy">COMPRAR AHORA</a>
             <a href="/Licores" class="btn btnEstilo2 view">VER PRODUCTOS</a>
           </div>
         </div>
@@ -30,9 +30,9 @@
       </div>
 
       <div class="d-flex align-items-center gap-4">
-        <button type="button" class="btn icon_account text-black mb-3" (click)="toggleLogin()"><i class="bi bi-person fs-5"></i></button>
-        <button type="button" class="btn icon_notifications text-black mb-3"><i class="bi bi-bell fs-5"></i></button>
-        <button type="button" class="btn icon_cart text-black mb-3"><i class="bi bi-cart fs-5"></i></button>
+        <button type="button" class="btn icon_account mb-3" (click)="toggleLogin()"><i class="bi bi-person fs-5"></i></button>
+        <button type="button" class="btn icon_notifications mb-3"><i class="bi bi-bell fs-5"></i></button>
+        <button type="button" class="btn icon_cart mb-3" routerLink="/carrito"><i class="bi bi-cart fs-5"></i></button>
       </div>
 
     </div>
@@ -44,7 +44,7 @@
       <div class="footerF">
         <div class="d-flex align-items-center justify-content-center position-relative footer_flotante">
           <div class="d-flex align-items-center justify-content-around gap-2 footer">
-            <a href="" class="btn btnEstilo1">COMPRAR AHORA</a>
+            <a href="/carrito" class="btn btnEstilo1">COMPRAR AHORA</a>
             <a href="/Licores" class="btn btnEstilo2">VER PRODUCTOS</a>
           </div>
         </div>
