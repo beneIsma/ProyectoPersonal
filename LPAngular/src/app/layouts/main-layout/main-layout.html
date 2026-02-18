@@ -1,4 +1,5 @@
 <div class="contorno">
+
   <div class="d-flex align-items-center justify-content-center">
     <a href=""><img src="/background/LaParada.png" alt="imagen" class="imgLogo"></a>
   </div>
@@ -22,7 +23,7 @@
       <div class="barra">
         <div class="d-flex align-items-center gap-5">
           <a href="home/" class="text-decoration-none fs-5 fw-bold efectoEnlace">HOME</a>
-          <a href="/Licores" class="text-decoration-none text-black fs-5 fw-bold efectoEnlace">PRODUCTS</a>
+          <a href="/Licores" class="text-decoration-none text-black fs-5 fw-bold efectoEnlace" (click)="verProductos($event)">PRODUCTS</a>
           <a href="about/" class="text-decoration-none text-black fs-5 fw-bold efectoEnlace">ABOUT</a>
           <a href="/contact" class="text-decoration-none text-black fs-5 fw-bold efectoEnlace">CONTACTS</a>
           <a href="blog/" class="text-decoration-none text-black fs-5 fw-bold efectoEnlace">BLOG</a>
@@ -45,7 +46,7 @@
         <div class="d-flex align-items-center justify-content-center position-relative footer_flotante">
           <div class="d-flex align-items-center justify-content-around gap-2 footer">
             <a href="/carrito" class="btn btnEstilo1">COMPRAR AHORA</a>
-            <a href="/Licores" class="btn btnEstilo2">VER PRODUCTOS</a>
+            <a href="/Licores" class="btn btnEstilo2" (click)="verProductos($event)">VER PRODUCTOS</a>
           </div>
         </div>
       </div>

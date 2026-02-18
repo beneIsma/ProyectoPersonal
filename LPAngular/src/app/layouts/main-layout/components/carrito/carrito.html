@@ -2,20 +2,25 @@
   <app-layouts></app-layouts>
   <div class="flex-grow-1 container">
     <div class="d-flex flex-column align-items-center">
-      <div *ngIf="carritoService.cart.length === 0">
-        <p>No hay artículos en el carrito</p>
+      @if (carritoService.getSize() === 0) {
+        <div>
+          <p>No hay artículos en el carrito</p>
+        </div>
+      } @else if (carritoService.getSize() > 1) {
+        <div>
+          <p class="mt-2 titleTotal">Total del carrito {{carritoService.totalCarrito()}}€</p>
+        </div>
+      }
+      <div class="d-flex gap-2">
+        <button type="button" class="btn btnTramitarPedido mb-3">Tramitar pedido</button>
+        <button type="button" class="btn btnTramitarPedido mb-3" (click)="vaciarCarrito()">Vaciar carrito</button>
       </div>
-      <div *ngIf="carritoService.cart.length > 1">
-        <p class="mt-2 titleTotal">Total del carrito {{carritoService.totalCarrito()}}€</p>
-      </div>
-
-      <button type="button" class="btn btnTramitarPedido mb-3">Tramitar pedido</button>
     </div>
   </div>
 
 
   <div class="container">
-    @for (p of carritoService.cart; track p.slug) {
+    @for (p of carritoService.cart(); track p.slug) {
       <hr class="border-1">
       <div class="row row-cols-md-4">
         <div class="col mt-2 mb-2">
@@ -36,7 +41,7 @@
         </div>
         <div class="col">
           <div class="d-flex flex-column align-items-center">
-            <p class="mb-3 fs-3">{{p.precioVenta}}€</p>
+            <p class="mb-3 fs-3">{{(p.precioVenta * p.cantidad).toFixed(2)}}€</p>
             <button type="button" class="btn border-1 rounded-2 btnEliminar fs-3" (click)="carritoService.eliminarProducto(p.slug)">Eliminar</button>
           </div>
         </div>
@@ -46,4 +51,3 @@
   </div>
   <app-footer></app-footer>
 </div>
-

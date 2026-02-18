@@ -6,6 +6,7 @@ import {CategoriaLicoresService} from '../../../../core/services/categoriaLicore
 import {Footer} from '../../../footer/footer';
 import {NgClass} from '@angular/common';
 import {CarritoService} from '../../../../core/services/carrito/carrito.service';
+import {AlertasServices} from '../../../../core/utils/alertas/alertas.services';
 
 @Component({
   selector: 'app-pag-licores',
@@ -21,37 +22,41 @@ export class PagLicores implements OnInit {
     private productosService: ProductosService,
     private categoriaLicores: CategoriaLicoresService,
     public  carritoService:CarritoService,
+    private alertasService: AlertasServices
   ) {}
 
   productos = signal<ProductoInterface[]>([])
   seccionLicores = signal<seccionesLicores[]>([])
 
   ngOnInit() {
+    this.alertasService.showLoader()
+    setTimeout(() => {
+      this.productosService.obtenerProductos().subscribe({
+        next: response => {
+          console.log(response);
+          this.productos.set(response.data)
+        },
+        error: error => {
+          console.log(error);
+        },
+        complete: () => {
+        }
+      })
 
-    this.productosService.obtenerProductos().subscribe({
-      next: response => {
-        console.log(response);
-        this.productos.set(response.data)
-      },
-      error: error => {
-        console.log(error);
-      },
-      complete: () => {}
-    })
-
-    this.categoriaLicores.getCategorias().subscribe({
-      next: response => {
-        console.log(response);
-        this.seccionLicores.set(response.data)
-      },
-      error: error => {
-        console.log(error);
-      },
-      complete: () => {}
-    })
+      this.categoriaLicores.getCategorias().subscribe({
+        next: response => {
+          console.log(response);
+          this.seccionLicores.set(response.data)
+        },
+        error: error => {
+          console.log(error);
+        },
+        complete: () => {
+          this.alertasService.hide()
+        }
+      })
+    }, 1000)
   }
-
-
 }
 
 export interface ProductoInterface {

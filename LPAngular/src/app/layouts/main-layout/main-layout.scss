@@ -133,6 +133,32 @@
 .lineVertical {
   display: none;
 }
+.popupErrorLogin {
+  width: 100%;
+  height: 100dvh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.45);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  .cajaError {
+    width: 100%;
+    height: 100%;
+    max-width: 450px;
+    max-height: 50px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+  }
+  .error {
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #ff0000;
+  }
+}
 @media (max-width: 1380px) {
   .title {
     font-size: 90px;

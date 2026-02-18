@@ -4,6 +4,8 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {SessionStorageService} from '../../../../../core/services/sessionStorage/session-storage.service';
 import {AuthServiceService} from '../../../../../core/services/auth-service/auth-service.service';
 import {AuthCookieService} from '../../../../../core/services/auth-cookie/auth-cookie.service';
+import {AlertasServices} from '../../../../../core/utils/alertas/alertas.services';
+import {Router} from '@angular/router';
 
 type datosEnvioAlBack = {"email": string, "password": string};
 
@@ -39,6 +41,7 @@ export class Login {
     private cookieService: AuthCookieService,
     private sessionStorage: SessionStorageService,
     private authService: AuthServiceService,
+    private alertasServices: AlertasServices,
   ) {
     this.formLogin = this.formBuilder.group({
       email: ['isma@gmail.com', [Validators.required, Validators.email, Validators.maxLength(100)]],
@@ -74,7 +77,10 @@ export class Login {
         this.sessionStorage.set('data', data);
 
         this.openLoginDesdeHome.emit();
-        alert("Iniciando sesión")
+        this.alertasServices.mensajeNormal("¡Éxito!","Sesión iniciada", "success");
+        setTimeout(() => {
+          this.alertasServices.hide()
+        },4000)
       },
       error: error => {
         console.log(error);
