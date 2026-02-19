@@ -21,10 +21,12 @@ export class PagLicores implements OnInit {
   constructor(
     private productosService: ProductosService,
     private categoriaLicores: CategoriaLicoresService,
-    public  carritoService:CarritoService,
+    public carritoService: CarritoService,
     private alertasService: AlertasServices
-  ) {}
+  ) {
+  }
 
+  copiaProductos = signal<ProductoInterface[]>([])
   productos = signal<ProductoInterface[]>([])
   seccionLicores = signal<seccionesLicores[]>([])
 
@@ -35,6 +37,7 @@ export class PagLicores implements OnInit {
         next: response => {
           console.log(response);
           this.productos.set(response.data)
+          this.copiaProductos.set(this.productos())
         },
         error: error => {
           console.log(error);
@@ -47,6 +50,7 @@ export class PagLicores implements OnInit {
         next: response => {
           console.log(response);
           this.seccionLicores.set(response.data)
+
         },
         error: error => {
           console.log(error);
@@ -57,12 +61,22 @@ export class PagLicores implements OnInit {
       })
     }, 1000)
   }
+
+  cambiarEstado(seccion: String) {
+    const filtrados = this.productos().filter((p => p.seccion === seccion))
+    this.productos.set(filtrados)
+  }
+
+  mostrarTodosLosProductos() {
+    this.productos.set(this.copiaProductos())
+  }
 }
 
 export interface ProductoInterface {
   nombre:string,
   slug:string,
-  categoria:string ,
+  categoria:string,
+  seccion:string,
   precio:number,
   precioVenta:number,
   proveedor:string,

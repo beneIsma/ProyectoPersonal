@@ -2,6 +2,7 @@ from django.db import models
 
 
 class SeccionesCategoria(models.Model):
+    producto = models.ForeignKey("ProductoModel", on_delete=models.CASCADE,null=True, blank=False)
     categoria = models.ForeignKey("CategoriasModel", on_delete=models.SET_NULL, blank=False, null=True, verbose_name="¿A qué categoría pertenece la sección?")
     nombre = models.CharField(blank=False, null=False, max_length=20, verbose_name="Sección")
     imagen = models.ImageField(upload_to="imagesSecciones/", blank=True, null=True)

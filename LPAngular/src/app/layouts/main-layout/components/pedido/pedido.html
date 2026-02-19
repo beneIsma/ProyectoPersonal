@@ -1,0 +1,28 @@
+<app-layouts></app-layouts>
+<div class="d-flex justify-content-between">
+  <div class="col">
+    <div class="d-flex flex-column">
+      <p>PedidoServices</p>
+      @for (p of pedidos(); track p.slug) {
+        <p>{{p.slug}}</p>
+      }
+    </div>
+  </div>
+  <div class="col">
+    <div class="d-flex flex-column">
+      <p>Fecha de pago</p>
+    </div>
+  </div>
+  <div class="col">
+    <div class="d-flex flex-column">
+      <p>Entrega estimada</p>
+    </div>
+  </div>
+  <div class="col">
+    <div class="d-flex flex-column">
+      <p>Precio €</p>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

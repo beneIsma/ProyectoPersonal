@@ -6,13 +6,14 @@
       <div class="cajaCategoria">
         <div class="elementosCategoria">
           <img src="{{s.imagen}}" alt="{{s.categoria}}" class="img py-2">
-          <a href="" class="text-decoration-none letraCategoria">{{s.nombre}}</a>
+          <button type="button" class="btn letraCategoria" (click)="cambiarEstado(s.nombre)">{{s.nombre}}</button>
         </div>
       </div>
     }
 
   </div>
   <div class="d-flex align-items-center justify-content-end mt-4 mb-4 me-5 gap-2">
+    <button type="button" class="btn text-white bg-info" (click)="mostrarTodosLosProductos()">Mostrar todos los productos</button>
     <p class="m-0 text-white">Ordenar por:</p>
     <select>
       <option value="">Mejor vendido</option>
@@ -20,13 +21,8 @@
       <option value="Más votados">Más votados</option>
     </select>
   </div>
-  <div class="row columnas">
-    <div class="col-3 tablaFiltro ms-5 mt-2 mb-5">
-      <p class="mt-5 text-white">Filtros</p>
-    </div>
-
-    <div class="col-8 ms-5 mt-2 tablaProductos mb-5">
-      <div class="row row-cols-2 row-cols-md-4 g-3 mt-5">
+    <div class="mt-2 tablaProductos">
+      <div class="row row-cols-md-6 g-3 mt-5 ms-3 me-3">
         @for (p of productos(); track p.slug) {
           <div class="col">
             <div class="cardProducto">
@@ -41,9 +37,9 @@
                 </div>
               </div>
               <div class="d-flex flex-column gap-1 p-1">
-                <p class="text-primary">{{p.descripcion}}</p>
-                <p class="text-info">{{p.nombre}}</p>
-                <p class="fs-5">{{p.precioVenta}}</p>
+                <p class="text-primary fs-2">{{p.descripcion}}</p>
+                <p class="text-info fs-3">{{p.nombre}}</p>
+                <p class="fs-3">{{p.precioVenta}}</p>
                 <button class="btnAgregarCarrito" (click)="carritoService.agregarProducto(p)">Agregar al carrito</button>
               </div>
             </div>
@@ -52,6 +48,6 @@
       </div>
     </div>
   </div>
-</div>
+
 
 <app-footer></app-footer>

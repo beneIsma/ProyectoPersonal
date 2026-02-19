@@ -4,6 +4,7 @@ import {Footer} from '../../../footer/footer';
 import {CarritoService} from '../../../../core/services/carrito/carrito.service';
 import Swal from 'sweetalert2';
 import {Router} from '@angular/router';
+import {PedidoServices} from '../../../../core/services/pedido/pedido.services';
 
 @Component({
   selector: 'app-carrito',
@@ -20,7 +21,7 @@ export class Carrito {
 
   constructor(
     protected carritoService: CarritoService,
-    private router: Router,
+    protected pedidoService: PedidoServices,
   ) {
     this.carritoService.guardarProductosCart()
 
@@ -62,4 +63,5 @@ export class Carrito {
       }
     });
   }
+
 }

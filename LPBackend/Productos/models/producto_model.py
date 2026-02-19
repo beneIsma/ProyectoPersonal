@@ -24,6 +24,7 @@ class ProductoModel(models.Model):
     )
     slug = models.SlugField(unique=True, max_length=20, blank=True, null=False, verbose_name="Slug")
     categoria = models.ForeignKey("CategoriasModel", on_delete=models.SET_NULL, null=True, blank=False, related_name="categorias")
+    seccion = models.ForeignKey("SeccionesCategoria", on_delete=models.SET_NULL,null=True, blank=False)
     precioCompra = models.FloatField(blank=False, null=False, verbose_name="Precio de compra (Bs)", validators=[validarPrecio])
     precioVenta = models.FloatField(blank=False, null=False, verbose_name="Precio de venta (Bs)", validators=[validarPrecio])
     proveedor = models.ForeignKey("ProveedorModel",on_delete=models.SET_NULL, blank=False, null=True, verbose_name="Proveedor")

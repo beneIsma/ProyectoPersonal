@@ -15,6 +15,7 @@ class ProductosView(APIView):
             "nombre": p.nombre,
             "slug": p.slug,
             "categoria": p.categoria.nombre,
+            "seccion": p.seccion.nombre,
             "precioCompra": p.precioCompra,
             "precioVenta": p.precioVenta,
             "proveedor": p.proveedor.nombreProveedor,
@@ -24,6 +25,5 @@ class ProductosView(APIView):
         }for p in productos]
 
         print(data)
-
         return Response({"data":data, "success": True}, status=status.HTTP_200_OK)
 

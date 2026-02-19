@@ -1,0 +1,12 @@
+.contenedorPedido {
+  background-color: white;
+  box-shadow: 2px 2px 2px 5px #1b0133;
+  overflow-x: hidden;
+}
+.imgProducto {
+  width: 100%;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 200px;
+}

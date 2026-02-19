@@ -4,16 +4,16 @@ from Productos.models import ProductoModel
 
 
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = ('nombre','categoria','precioCompra','precioVenta','proveedor','marca','descripcion', 'slug')
+    list_display = ('nombre','categoria','seccion','precioCompra','precioVenta','proveedor','marca','descripcion', 'slug')
     list_filter = ('categoria','proveedor','marca')
     search_fields = ('nombre','categoria','proveedor','marca')
     list_per_page = 20
-    list_editable = ('proveedor',)
+    list_editable = ('proveedor','seccion',)
 
     fieldsets = (
         ('Información del producto', {
             'fields': (
-                'nombre', 'marca','categoria','precioCompra','precioVenta','descripcion'
+                'nombre', 'marca','categoria','seccion','precioCompra','precioVenta','descripcion'
             )
         }),
         ('Proveedores', {
