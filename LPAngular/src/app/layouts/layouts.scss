@@ -31,9 +31,7 @@
   transform: scaleY(1.1);
   transition: 0.2s ease;
 }
-.icon_account:focus,
-.icon_cart:focus,
-.icon_notifications:focus {
+.icon_account:focus, {
   background: #1f6f5d;
   color: white;
   transition: 0.2s ease;

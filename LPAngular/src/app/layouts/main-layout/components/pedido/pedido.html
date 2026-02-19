@@ -1,28 +1,78 @@
-<app-layouts></app-layouts>
-<div class="d-flex justify-content-between">
-  <div class="col">
-    <div class="d-flex flex-column">
-      <p>PedidoServices</p>
+<div class="d-flex flex-column min-vh-100">
+  <app-layouts></app-layouts>
+  <div class="d-flex flex-column flex-grow-1">
+    @if (pedidos().length == 0) {
+      <p class="m-0 m-auto">No hay pedidos</p>
+    }
+    <div class="container mt-5">
       @for (p of pedidos(); track p.slug) {
-        <p>{{p.slug}}</p>
+        <div class="border-1 rounded-2 contenedorPedido divSuperior mb-4">
+          <div class="row row-cols-1 row-cols-md-2 ">
+            <div class="col">
+              <div class="d-flex align-items-center justify-content-around">
+                <div class="d-flex flex-column">
+                  <p>PEDIDO REALIZADO</p>
+                  <p>{{p.fechaCompra}}</p>
+                </div>
+                <div class="d-flex flex-column">
+                  <p>TOTAL</p>
+                  <p>{{p.precioTotal}} €</p>
+                </div>
+                <div class="d-flex flex-column">
+                  <p>ENVIAR A</p>
+                  <p>usuario</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="d-flex align-items-center justify-content-end">
+                <div class="d-flex flex-column">
+                  <p>PEDIDO N.º {{p.slug}}</p>
+                  <button type="button" class="btn text-info" (click)="toggleDetallesPedido(p.slug)">Ver lo detalles del pedido</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="divInferior">
+            <div class="row">
+              <div class="col-4">
+                <div class="d-flex flex-column">
+                  <p class="mt-2 ms-1 fs-4">Fecha de entrega estimada: {{p.entregaEstimada}}</p>
+                  <img src="/icons/carrito.png" alt="imgCart" class="imgProducto">
+                </div>
+              </div>
+              @if (pedidoAbierto() === p.slug) {
+                <div class="col-8">
+                  <div class="d-flex flex-column">
+                    @for (p of pedidos(); track p.slug) {
+                      @for (prod of p.productos; track prod.slug) {
+                        <div class="row row-cols-1 row-cols-md-4 align-items-center">
+                          <img src="{{prod.imagen}}" alt="imgProducto" class="imgProductoDetalles mt-1">
+                          <p class="fs-5">{{prod.nombre}}</p>
+                          <p class="fs-5">{{prod.cantidad}}</p>
+                          <p class="fs-5">{{prod.precioVenta}} €</p>
+                        </div>
+                      }
+                  <hr class="me-2">
+                  <div class="d-flex align-items-center justify-content-center gap-2">
+                    <p class="fs-4">Total</p>
+                    <p class="fs-4">{{p.precioTotal}} €</p>
+                  </div>
+                    }
+                  </div>
+                </div>
+              } @else {
+                <div class="col-8">
+                  <img src="/background/fondoPedido.png" alt="imagenFondoPedido" class="imgFondoPedido">
+                </div>
+              }
+            </div>
+          </div>
+        </div>
       }
     </div>
   </div>
-  <div class="col">
-    <div class="d-flex flex-column">
-      <p>Fecha de pago</p>
-    </div>
-  </div>
-  <div class="col">
-    <div class="d-flex flex-column">
-      <p>Entrega estimada</p>
-    </div>
-  </div>
-  <div class="col">
-    <div class="d-flex flex-column">
-      <p>Precio €</p>
-    </div>
-  </div>
+  <app-footer></app-footer>
 </div>
-
-<app-footer></app-footer>

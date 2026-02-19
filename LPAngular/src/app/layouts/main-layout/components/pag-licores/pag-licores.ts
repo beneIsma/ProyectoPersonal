@@ -63,7 +63,7 @@ export class PagLicores implements OnInit {
   }
 
   cambiarEstado(seccion: String) {
-    const filtrados = this.productos().filter((p => p.seccion === seccion))
+    const filtrados = this.copiaProductos().filter((p => p.seccion === seccion))
     this.productos.set(filtrados)
   }
 

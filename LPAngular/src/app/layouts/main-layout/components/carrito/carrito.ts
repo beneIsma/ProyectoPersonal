@@ -5,6 +5,7 @@ import {CarritoService} from '../../../../core/services/carrito/carrito.service'
 import Swal from 'sweetalert2';
 import {Router} from '@angular/router';
 import {PedidoServices} from '../../../../core/services/pedido/pedido.services';
+import {AlertasServices} from '../../../../core/utils/alertas/alertas.services';
 
 @Component({
   selector: 'app-carrito',
@@ -22,9 +23,10 @@ export class Carrito {
   constructor(
     protected carritoService: CarritoService,
     protected pedidoService: PedidoServices,
+    private router: Router,
+    private alertasServices: AlertasServices,
   ) {
     this.carritoService.guardarProductosCart()
-
   }
 
   vaciarCarrito() {
@@ -64,4 +66,14 @@ export class Carrito {
     });
   }
 
+  tramitarPedido() {
+    if (this.carritoService.cart().length >= 1) {
+      this.pedidoService.crearPedido(this.carritoService.cart())
+      this.carritoService.cart.set([])
+      this.router.navigate(['/pedido']);
+    }else {
+      this.alertasServices.mensajeNormal("Lo siento","No puedes comprar si no has seleccionado productos a tu carrito","info")
+
+    }
+  }
 }

@@ -1,28 +1,36 @@
-import {Component, signal} from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import {Layouts} from '../../../layouts';
 import {Footer} from '../../../footer/footer';
 import {PedidoServices} from '../../../../core/services/pedido/pedido.services';
+import {ProductoInterface} from '../pag-licores/pag-licores';
 
 @Component({
   selector: 'app-pedido',
   imports: [
     Layouts,
-    Footer
+    Footer,
   ],
   templateUrl: './pedido.html',
   styleUrl: './pedido.scss',
 })
-export class Pedido {
+export class Pedido implements OnInit {
 
   constructor(
     protected pedidoService:PedidoServices,
   ) {
+    this.pedidoService.guardarPedidosEnLocalStorage()
   }
-  pedidos = signal<ModeloPedido[]>([])
 
-  generarPedido() {
-    // @ts-ignore
-    this.pedidos.set(this.pedidoService.generarSlugAleatorio())
+  pedidos = signal<ModeloPedido[]>([])
+  pedidoAbierto = signal<string | null>(null)
+
+  toggleDetallesPedido(slug: string) {
+    this.pedidoAbierto.set(this.pedidoAbierto() === slug ? null : slug);
+  }
+
+
+  ngOnInit() {
+    this.pedidos.set(this.pedidoService.getPedido())
   }
 }
 
@@ -30,7 +38,8 @@ export class Pedido {
 export interface ModeloPedido {
   slug:string;
   fechaCompra:string;
-  detallesPedido:string;
   entregaEstimada:string;
   precioTotal:number;
+  productos: ProductoInterface[]
+  detalleAbierto?: boolean;
 }
