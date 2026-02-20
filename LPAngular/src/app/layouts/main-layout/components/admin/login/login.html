@@ -14,12 +14,30 @@
       <form method="post" [formGroup]="formLogin" (ngSubmit)="iniciarLogin()" autocomplete="off">
         <div class="form container mt-3">
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="" formControlName="email">
+            <input type="email" class="form-control" id="floatingInput" placeholder="" formControlName="email"
+            [ngClass]="[formLogin.get('email')?.touched && formLogin.get('email')?.errors ? 'is-invalid' : '']">
             <label for="floatingInput">Email</label>
+            @if (formLogin.get('email')?.touched) {
+              @if (formLogin.get('email')?.errors?.['checkEmail']) {
+                <div>Email incorrecto</div>
+              }
+              @if (formLogin.get('email')?.errors?.['required']) {
+                <div>El campo es obligatorio</div>
+              }
+              @if (formLogin.get('email')?.errors?.['email']) {
+                <div>No es un email válido</div>
+              }
+            }
           </div>
           <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="" formControlName="password">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="" formControlName="password"
+            [ngClass]="[formLogin.get('password')?.touched && formLogin.get('password')?.errors ? 'is-invalid' : '']">
             <label for="floatingPassword">Password</label>
+            @if (formLogin.get('password')?.touched) {
+              @if (formLogin.get('password')?.errors) {
+                <div>El campo es obligatorio</div>
+              }
+            }
           </div>
           <button type="submit" class="d-block w-100 btn btnColor mt-4">LOGIN</button>
         </div>

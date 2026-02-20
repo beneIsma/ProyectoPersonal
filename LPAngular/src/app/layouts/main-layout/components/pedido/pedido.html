@@ -52,7 +52,7 @@
                           <img src="{{prod.imagen}}" alt="imgProducto" class="imgProductoDetalles mt-1">
                           <p class="fs-5">{{prod.nombre}}</p>
                           <p class="fs-5">{{prod.cantidad}}</p>
-                          <p class="fs-5">{{prod.precioVenta}} €</p>
+                          <p class="fs-5">{{(prod.precioVenta * prod.cantidad)}} €</p>
                         </div>
                       }
                   <hr class="me-2">

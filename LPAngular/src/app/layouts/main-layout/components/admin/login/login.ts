@@ -5,7 +5,8 @@ import {SessionStorageService} from '../../../../../core/services/sessionStorage
 import {AuthServiceService} from '../../../../../core/services/auth-service/auth-service.service';
 import {AuthCookieService} from '../../../../../core/services/auth-cookie/auth-cookie.service';
 import {AlertasServices} from '../../../../../core/utils/alertas/alertas.services';
-import {Router} from '@angular/router';
+import {validateEmail} from '../../../../../core/validators/emailValidators';
+import {NgClass} from '@angular/common';
 
 type datosEnvioAlBack = {"email": string, "password": string};
 
@@ -14,7 +15,8 @@ type datosEnvioAlBack = {"email": string, "password": string};
   selector: 'app-login',
   imports: [
     Register,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgClass
   ],
   templateUrl: './login.html',
   styleUrl: './login.scss',
@@ -44,7 +46,7 @@ export class Login {
     private alertasServices: AlertasServices,
   ) {
     this.formLogin = this.formBuilder.group({
-      email: ['isma@gmail.com', [Validators.required, Validators.email, Validators.maxLength(100)]],
+      email: ['isma@gmail.com', [Validators.required, Validators.email, Validators.maxLength(100), validateEmail]],
       password: ['123456789', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
     })
   }
