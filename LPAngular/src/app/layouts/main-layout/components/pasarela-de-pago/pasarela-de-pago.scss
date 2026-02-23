@@ -1,0 +1,105 @@
+.popup {
+  width: 100%;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  .pasarela-pago {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 900px;
+    margin: 60px auto;
+    background-color: #f6eded;
+  }
+  .btnClose {
+    border: none;
+  }
+  .btnClose:hover {
+    color: red;
+  }
+  .resumenPedido {
+    border: 2px solid #350335;
+    border-radius: 20px;
+    background-color: rgba(243, 223, 252, 0.5);
+    box-shadow: 1px 1px 1px rgba(221, 169, 245, 0.5);
+  }
+  .apart1 {
+    border-bottom: 1px solid rgba(221, 169, 245, 0.5);
+  }
+  .cajaCarrito {
+    border: 1px solid black;
+    border-radius: 10px;
+    background: #b270d0;
+    color: white;
+  }
+  .iconBag {
+    color: white;
+  }
+
+  .cajaCarrito:hover {
+    background: white;
+    .iconBag {
+      color: #360343
+    }
+  }
+  .cajitaDePago {
+    border: 2px solid #350335;
+    border-radius: 20px;
+  }
+  .btnRadio {
+    transform: scale(1.5);
+    margin: 10px;
+  }
+  .btnRadio:hover {
+    cursor: pointer;
+  }
+  .cajitaFormaDePago {
+    cursor: pointer;
+  }
+  .cajitaDePago {
+    box-shadow: 1px 1px 1px rgba(221, 169, 245, 0.5);
+  }
+  .cajitaDePago:hover {
+    background: #f6eef8;
+    .cambiarColorIcono {
+      color: purple;
+    }
+  }
+  .datosPago {
+    border-radius: 10px;
+    background: #f5f1f6;
+    box-shadow: 1px 1px 10px rgba(37, 35, 37, 0.5);
+  }
+  .iconoTarjeta {
+    right: 0;
+    margin-right: 20px;
+    margin-top: 5px;
+  }
+  .btnCheckbox {
+    transform: scale(1.5);
+    margin: 10px;
+  }
+  .btnCheckbox:hover {
+    cursor: pointer;
+  }
+  .iconCheck {
+    color: greenyellow;
+    font-size: 30px;
+  }
+  .btnPagarCompra {
+    background: #111111;
+    color: white;
+    border: none;
+  }
+  .btnPagarCompra:hover {
+    color: white;
+    background: #2b0242;
+    transform: scaleY(1);
+    transition: 0.2s ease;
+  }
+}

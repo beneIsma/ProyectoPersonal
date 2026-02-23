@@ -1,10 +1,8 @@
 import {Component, OnInit, signal} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
 import {ProductosService} from '../../../../core/services/productos/productos.service';
 import {Layouts} from '../../../layouts';
 import {CategoriaLicoresService} from '../../../../core/services/categoriaLicores/categoria-licores.service';
 import {Footer} from '../../../footer/footer';
-import {NgClass} from '@angular/common';
 import {CarritoService} from '../../../../core/services/carrito/carrito.service';
 import {AlertasServices} from '../../../../core/utils/alertas/alertas.services';
 
@@ -22,12 +20,13 @@ export class PagLicores implements OnInit {
     private productosService: ProductosService,
     private categoriaLicores: CategoriaLicoresService,
     public carritoService: CarritoService,
-    private alertasService: AlertasServices
+    private alertasService: AlertasServices,
   ) {
   }
 
   copiaProductos = signal<ProductoInterface[]>([])
   productos = signal<ProductoInterface[]>([])
+
   seccionLicores = signal<seccionesLicores[]>([])
 
   ngOnInit() {

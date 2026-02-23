@@ -1,0 +1,123 @@
+<div class="popup">
+  <div class="pasarela-pago">
+    <div class="d-flex align-items-center mt-3 me-1 apart1">
+      <div class="d-flex align-items-center justify-content-start">
+        <button type="button" (click)="openPasarelaDePagoDesdeCarrito.emit()" class="btn btnClose"><i class="bi bi-arrow-left fs-2"></i></button>
+      </div>
+      <div class="d-flex align-items-center justify-content-end ms-5">
+        <h1>Finalizar Pago</h1>
+      </div>
+    </div>
+    <div class="resumenPedido ms-4 me-4 mt-4 py-2">
+      <div class="row ms-2">
+        <div class="col-9">
+          <div class="d-flex flex-column mt-2 ">
+            <p class="m-0">Resumen del pedido</p>
+            <p class="m-0">{{carritoService.totalCarrito()}} €</p>
+            <p class="m-0">{{carritoService.lengthCarrito()}} productos incluidos</p>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="d-flex align-items-center justify-content-center mt-3">
+            <div class="cajaCarrito">
+              <button type="button" class="btn btnCarrito"><i class="bi bi-bag-fill iconBag"></i></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="mt-4 ms-4 me-4 cajitaFormaDePago">
+      <p class="m-0">MÉTODO DE PAGO</p>
+        <div class="cajitaDePago row row-cols-md-3 py-2 mb-3">
+          <div class="col-1">
+            <div class="ms-4 mt-3"><i class="bi bi-credit-card-fill fs-3 cambiarColorIcono"></i></div>
+          </div>
+          <div class="col-10">
+            <div class="d-flex flex-column align-items-center">
+              <p class="m-0">Tarjeta de Crédito / Débito</p>
+              <p class="m-0">Visa,Mastercard</p>
+            </div>
+          </div>
+          <div class="col-1">
+            <div class="d-flex align-items-center justify-content-end mt-3">
+              <input type="radio" class="ms-5 btnRadio" name="opcion">
+            </div>
+          </div>
+        </div>
+
+      <div class="cajitaDePago row row-cols-md-3 py-2 mb-3">
+        <div class="col-1">
+          <div class="ms-4 mt-3"><i class="bi bi-wallet-fill fs-3 cambiarColorIcono"></i></div>
+        </div>
+        <div class="col-10">
+          <div class="d-flex flex-column align-items-start">
+            <p class="m-0">Billetera Digital</p>
+            <p class="m-0">PayPal,GooglePay</p>
+          </div>
+        </div>
+        <div class="col-1">
+          <div class="d-flex align-items-center justify-content-end mt-3">
+            <input type="radio" class="ms-5 btnRadio" name="opcion">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="datosPago ms-3 me-3">
+      <div class="container">
+        <p class="m-0 ms-1 mb-3">Número de tarjeta</p>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control position-relative" placeholder="0000 0000 0000 0000">
+          <div class="position-absolute iconoTarjeta"><i class="bi bi-wallet2"></i></div>
+        </div>
+
+        <div class="row row-cols-md-2 mt-4">
+
+          <div class="col">
+            <div class="d-flex flex-column align-items-center">
+              <p class="m-0 mb-2">Vencimiento</p>
+              <input type="text" placeholder="MM/AA" class="form-control">
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="d-flex flex-column align-items-center">
+              <p class="m-0 mb-2">CVV</p>
+              <input type="password" min="3" placeholder="***" class="form-control">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="d-flex flex-column mt-4">
+          <p class="m-0 mb-2 ms-1">Nombre en la tarjeta</p>
+          <input type="text" class="form-control">
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+          <div class="d-flex flex-row gap-2">
+            <div><i class="bi bi-lock-fill"></i></div>
+            <p class="m-0">Guardar para futuras compras</p>
+          </div>
+          <div>
+            <input type="checkbox" class="btnCheckbox">
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center gap-2 mt-4 ms-3 me-3">
+      <i class="bi bi-shield-fill-check iconCheck"></i>
+      <p class="m-0">PAGO SEGURO CON ENCRIPTACIÓN SSL</p>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center">
+      <button type="submit" class="btn btnPagarCompra w-100 me-3 ms-3">PAGAR AHORA</button>
+    </div>
+  </div>
+</div>

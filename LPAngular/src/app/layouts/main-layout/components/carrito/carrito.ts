@@ -6,12 +6,14 @@ import Swal from 'sweetalert2';
 import {Router} from '@angular/router';
 import {PedidoServices} from '../../../../core/services/pedido/pedido.services';
 import {AlertasServices} from '../../../../core/utils/alertas/alertas.services';
+import {PasarelaDePago} from '../pasarela-de-pago/pasarela-de-pago';
 
 @Component({
   selector: 'app-carrito',
   imports: [
     Layouts,
     Footer,
+    PasarelaDePago,
   ],
   templateUrl: './carrito.html',
   styleUrl: './carrito.scss',
@@ -75,5 +77,11 @@ export class Carrito {
       this.alertasServices.mensajeNormal("Lo siento","No puedes comprar si no has seleccionado productos a tu carrito","info")
 
     }
+  }
+
+  openPasarelaDePago = signal<boolean>(false)
+
+  togglePasarelaDePago() {
+    this.openPasarelaDePago.update(state => !state)
   }
 }

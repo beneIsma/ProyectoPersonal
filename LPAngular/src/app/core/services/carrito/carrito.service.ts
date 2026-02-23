@@ -70,4 +70,8 @@ export class CarritoService {
     }))
     return total;
   }
+
+  lengthCarrito(){
+    return this.cart().length;
+  }
 }

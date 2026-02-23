@@ -12,7 +12,7 @@
         </div>
       }
       <div class="d-flex gap-2">
-        <button type="button" class="btn btnTramitarPedido mb-3" (click)="tramitarPedido()">Tramitar pedido</button>
+        <button type="button" class="btn btnTramitarPedido mb-3" (click)="togglePasarelaDePago()">Tramitar pedido</button>
         <button type="button" class="btn btnTramitarPedido mb-3" (click)="vaciarCarrito()">Vaciar carrito</button>
       </div>
     </div>
@@ -51,3 +51,7 @@
   </div>
   <app-footer></app-footer>
 </div>
+
+@if (openPasarelaDePago()) {
+  <app-pasarela-de-pago (openPasarelaDePagoDesdeCarrito)="togglePasarelaDePago()"></app-pasarela-de-pago>
+}

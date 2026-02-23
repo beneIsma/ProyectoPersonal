@@ -1,8 +1,7 @@
 import {Component, OnInit, signal} from '@angular/core';
 import {Login} from './main-layout/components/admin/login/login';
 import {PanelCategoriasService} from '../core/services/panelCategorias/panel-categorias.service';
-import {RouterLink, RouterLinkActive} from '@angular/router';
-import {BarraMenuMovil} from './main-layout/components/menuHome-movil/barra-menu-movil';
+import {RouterLink} from '@angular/router';
 import {MenuProductosMovil} from './main-layout/components/menu-productos-movil/menu-productos-movil';
 
 @Component({
@@ -29,9 +28,10 @@ export class Layouts implements OnInit {
   }
 
   constructor(
-    private panelCategorias: PanelCategoriasService
+    private panelCategorias: PanelCategoriasService,
   ) {
   }
+
   categorias = signal<CategoriaInterface[]>([])
 
   ngOnInit() {
@@ -43,13 +43,12 @@ export class Layouts implements OnInit {
       error: error => {
         console.log(error);
       },
-      complete: () => {}
+      complete: () => {
+      }
     })
   }
-
-
-
 }
+
 
 interface CategoriaInterface {
   nombre: string;
