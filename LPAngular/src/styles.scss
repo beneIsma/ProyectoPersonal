@@ -5,6 +5,10 @@
 // Learn more about theming and how to use it for your application's
 // custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
+@use './styles/variables';
+@use './styles/typography' as typo;
+@use './styles/bootstrap-custom';
+@use './styles/theme' as th;
 
 html {
   height: 100%;
@@ -35,10 +39,6 @@ body {
   margin: 0;
   height: 100%;
 }
-@use './styles/variables';
-@use './styles/typography' as typo;
-@use './styles/bootstrap-custom';
-@use './styles/theme' as th;
 
 @include th.apply-theme();
 

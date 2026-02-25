@@ -3,6 +3,7 @@ import {Layouts} from '../../../layouts';
 import {Footer} from '../../../footer/footer';
 import {PedidoServices} from '../../../../core/services/pedido/pedido.services';
 import {ProductoInterface} from '../pag-licores/pag-licores';
+import {DatosUsuarioService} from '../../../../core/services/datos-usuario/datos-usuario.service';
 
 @Component({
   selector: 'app-pedido',
@@ -17,6 +18,7 @@ export class Pedido implements OnInit {
 
   constructor(
     protected pedidoService:PedidoServices,
+    protected datosUsuarioService: DatosUsuarioService,
   ) {
     this.pedidoService.guardarPedidosEnLocalStorage()
   }

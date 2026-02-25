@@ -1,12 +1,12 @@
 {
-  "name": "meraki-clinic",
+  "name": "la-parada",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "vitest"
   },
   "prettier": {
     "printWidth": 100,
@@ -36,6 +36,7 @@
     "bootstrap": "^5.3.6",
     "bootstrap-icons": "^1.13.1",
     "i": "^0.3.7",
+    "ngx-cookie-service": "^21.1.0",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.26.17",
     "tslib": "^2.3.0"

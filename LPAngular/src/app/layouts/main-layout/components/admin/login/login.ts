@@ -1,12 +1,13 @@
 import {Component, output, signal} from '@angular/core';
 import {Register} from '../register/register';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {SessionStorageService} from '../../../../../core/services/sessionStorage/session-storage.service';
 import {AuthServiceService} from '../../../../../core/services/auth-service/auth-service.service';
 import {AuthCookieService} from '../../../../../core/services/auth-cookie/auth-cookie.service';
 import {AlertasServices} from '../../../../../core/utils/alertas/alertas.services';
 import {validateEmail} from '../../../../../core/validators/emailValidators';
 import {NgClass} from '@angular/common';
+import {DatosUsuarioService} from '../../../../../core/services/datos-usuario/datos-usuario.service';
 
 type datosEnvioAlBack = {"email": string, "password": string};
 
@@ -16,7 +17,8 @@ type datosEnvioAlBack = {"email": string, "password": string};
   imports: [
     Register,
     ReactiveFormsModule,
-    NgClass
+    NgClass,
+    FormsModule
   ],
   templateUrl: './login.html',
   styleUrl: './login.scss',
@@ -24,6 +26,7 @@ type datosEnvioAlBack = {"email": string, "password": string};
 })
 
 export class Login {
+
   openLoginDesdeHome = output()
 
   openRegistro = signal<boolean>(false)
@@ -44,6 +47,7 @@ export class Login {
     private sessionStorage: SessionStorageService,
     private authService: AuthServiceService,
     private alertasServices: AlertasServices,
+    protected datosUsuarioService: DatosUsuarioService
   ) {
     this.formLogin = this.formBuilder.group({
       email: ['isma@gmail.com', [Validators.required, Validators.email, Validators.maxLength(100), validateEmail]],
@@ -90,4 +94,10 @@ export class Login {
       complete: () => {}
     })
   }
+  email: string = '';
+
+  saveEmail() {
+    this.datosUsuarioService.guardarEmail(this.email)
+  }
+
 }

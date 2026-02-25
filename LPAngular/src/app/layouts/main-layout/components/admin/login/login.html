@@ -14,7 +14,7 @@
       <form method="post" [formGroup]="formLogin" (ngSubmit)="iniciarLogin()" autocomplete="off">
         <div class="form container mt-3">
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="" formControlName="email"
+            <input type="email" [(ngModel)]="email" class="form-control" id="floatingInput" placeholder="" formControlName="email"
             [ngClass]="[formLogin.get('email')?.touched && formLogin.get('email')?.errors ? 'is-invalid' : '']">
             <label for="floatingInput">Email</label>
             @if (formLogin.get('email')?.touched) {
@@ -39,7 +39,7 @@
               }
             }
           </div>
-          <button type="submit" class="d-block w-100 btn btnColor mt-4">LOGIN</button>
+          <button type="submit" class="d-block w-100 btn btnColor mt-4" (click)="saveEmail()">LOGIN</button>
         </div>
       </form>
 
