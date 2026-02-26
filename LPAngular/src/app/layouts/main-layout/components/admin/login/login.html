@@ -1,6 +1,6 @@
 @if (!openRegistro()) {
   <div class="popup">
-    <div class="cardLogin">
+    <div class="cardLogin" appClicOutside (clickFuera)="openLoginDesdeHome.emit()">
 
       <div class="d-flex">
         <div class="d-flex m-auto gap-5 mt-5">
@@ -14,7 +14,7 @@
       <form method="post" [formGroup]="formLogin" (ngSubmit)="iniciarLogin()" autocomplete="off">
         <div class="form container mt-3">
           <div class="form-floating mb-3">
-            <input type="email" [(ngModel)]="email" class="form-control" id="floatingInput" placeholder="" formControlName="email"
+            <input type="email"  appAutoFocus [(ngModel)]="email" class="form-control" id="floatingInput" placeholder="" formControlName="email"
             [ngClass]="[formLogin.get('email')?.touched && formLogin.get('email')?.errors ? 'is-invalid' : '']">
             <label for="floatingInput">Email</label>
             @if (formLogin.get('email')?.touched) {

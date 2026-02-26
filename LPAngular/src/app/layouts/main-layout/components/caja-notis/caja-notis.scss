@@ -1,0 +1,16 @@
+.cajitaNotis {
+  width: 100%;
+  max-width: 200px;
+  top: 20.5%;
+  right: 2.7%;
+  position: fixed;
+  background-color: #ffedff;
+  z-index: 999;
+  .btnFocus {
+    border: none;
+  }
+  .btnFocus:hover {
+    background-color: #1f6f5d;
+    color: white;
+  }
+}

@@ -5,11 +5,13 @@ import {CarritoService} from '../../../../core/services/carrito/carrito.service'
 import {PedidoServices} from '../../../../core/services/pedido/pedido.services';
 import {Router} from '@angular/router';
 import {AlertasServices} from '../../../../core/utils/alertas/alertas.services';
+import {ClicOutside} from "../../../../shared/directives/clic-outside";
 
 @Component({
   selector: 'app-pasarela-de-pago',
-  imports: [
-  ],
+    imports: [
+        ClicOutside
+    ],
   templateUrl: './pasarela-de-pago.html',
   styleUrl: './pasarela-de-pago.scss',
 })

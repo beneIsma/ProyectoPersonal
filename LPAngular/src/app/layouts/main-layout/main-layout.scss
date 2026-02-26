@@ -15,20 +15,6 @@
   transform: scaleY(1.1);
   transition: 0.2s ease;
 }
-.icon_account:focus,
-.icon_cart:focus,
-.icon_notifications:focus {
-  background: #1f6f5d;
-  color: white;
-  transition: 0.2s ease;
-}
-.icon_account:active,
-.icon_cart:active,
-.icon_notifications:active {
-  background: #ffffff;
-  color: black;
-  transition: 0.2s ease;
-}
 .imgLogo {
   background-size: cover;
   object-fit: cover;

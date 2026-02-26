@@ -8,6 +8,8 @@ import {AlertasServices} from '../../../../../core/utils/alertas/alertas.service
 import {validateEmail} from '../../../../../core/validators/emailValidators';
 import {NgClass} from '@angular/common';
 import {DatosUsuarioService} from '../../../../../core/services/datos-usuario/datos-usuario.service';
+import {AutoFocus} from '../../../../../shared/directives/auto-focus';
+import {ClicOutside} from '../../../../../shared/directives/clic-outside';
 
 type datosEnvioAlBack = {"email": string, "password": string};
 
@@ -18,7 +20,9 @@ type datosEnvioAlBack = {"email": string, "password": string};
     Register,
     ReactiveFormsModule,
     NgClass,
-    FormsModule
+    FormsModule,
+    AutoFocus,
+    ClicOutside
   ],
   templateUrl: './login.html',
   styleUrl: './login.scss',

@@ -1,5 +1,5 @@
 <div class="popup">
-  <div class="pasarela-pago">
+  <div class="pasarela-pago" appClicOutside (clickFuera)="openPasarelaDePagoDesdeCarrito.emit()">
     <div class="d-flex align-items-center mt-3 me-1 apart1">
       <div class="d-flex align-items-center justify-content-start">
         <button type="button" (click)="openPasarelaDePagoDesdeCarrito.emit()" class="btn btnClose"><i class="bi bi-arrow-left fs-2"></i></button>

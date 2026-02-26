@@ -6,6 +6,9 @@ import {RouterLink} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import {AlertasServices} from '../../core/utils/alertas/alertas.services';
 import {BaseModal} from '../../shared/components/modals/base-modal/base-modal';
+import {CategoriaInterface} from '../../core/interfaces/categoriaInterface';
+import {CajaNotis} from './components/caja-notis/caja-notis';
+import {ClicOutside} from '../../shared/directives/clic-outside';
 
 @Component({
   selector: 'app-main-layout',
@@ -14,6 +17,8 @@ import {BaseModal} from '../../shared/components/modals/base-modal/base-modal';
     BarraMenuMovil,
     NgClass,
     RouterLink,
+    CajaNotis,
+    ClicOutside,
   ],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.scss',
@@ -31,6 +36,11 @@ export class MainLayout {
 
   toggleLogin = () => {
     this.openLogin.update(state => !state);
+  }
+  openCajitaNotis = signal<boolean>(false);
+
+  toggleCajitaNotis() {
+    this.openCajitaNotis.update(state => !state);
   }
   openBarra = signal<boolean>(false);
   toggleBarra = () => {
