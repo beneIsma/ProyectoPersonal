@@ -5,6 +5,10 @@ import {CategoriaLicoresService} from '../../../../core/services/categoriaLicore
 import {Footer} from '../../../footer/footer';
 import {CarritoService} from '../../../../core/services/carrito/carrito.service';
 import {AlertasServices} from '../../../../core/utils/alertas/alertas.services';
+import {BusquedaPorFiltroService} from '../../../../core/services/busquedaPorFiltro/busqueda-por-filtro.service';
+import { effect } from '@angular/core';
+import {ProductoInterface} from '../../../../core/interfaces/productos';
+import {seccionesLicores} from '../../../../core/interfaces/productos';
 
 @Component({
   selector: 'app-pag-licores',
@@ -21,7 +25,26 @@ export class PagLicores implements OnInit {
     private categoriaLicores: CategoriaLicoresService,
     public carritoService: CarritoService,
     private alertasService: AlertasServices,
+    private busquedaService: BusquedaPorFiltroService
   ) {
+    /*El effect se ejecuta una vez al inicio
+      Y luego cada vez que cambia un signal que esté dentro
+    */
+
+    effect(() => {
+      const valor = this.busquedaService.valorInput();
+
+      if (!valor) {
+        this.productos.set(this.copiaProductos());
+        return;
+      }
+
+      const filtrados = this.copiaProductos().filter(p =>
+        p.nombre.toLowerCase().includes(valor.toLowerCase())
+      );
+
+      this.productos.set(filtrados);
+    });
   }
 
   copiaProductos = signal<ProductoInterface[]>([])
@@ -70,25 +93,3 @@ export class PagLicores implements OnInit {
     this.productos.set(this.copiaProductos())
   }
 }
-
-export interface ProductoInterface {
-  nombre:string,
-  slug:string,
-  categoria:string,
-  seccion:string,
-  precio:number,
-  precioVenta:number,
-  proveedor:string,
-  marca:string,
-  imagen:string,
-  descripcion:string,
-  cantidad: number;
-}
-
-interface seccionesLicores {
-  categoria:string;
-  nombre:string;
-  imagen:string;
-}
-
-

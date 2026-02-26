@@ -1,7 +1,7 @@
 import {Component, OnInit, output, signal} from '@angular/core';
 import {PanelCategoriasService} from '../../../../core/services/panelCategorias/panel-categorias.service';
-import {RouterLink} from '@angular/router';
 import {Login} from '../admin/login/login';
+import {CategoriaInterface} from '../../../../core/interfaces/menu-productos-movil/categoriasProductos';
 
 @Component({
   selector: 'app-menu-productos-movil',
@@ -38,8 +38,4 @@ export class MenuProductosMovil implements OnInit {
     })
   }
 
-}
-
-interface CategoriaInterface {
-  nombre: string;
 }

@@ -1,6 +1,6 @@
 import {Injectable, signal} from '@angular/core';
-import {ModeloPedido, Pedido} from '../../../layouts/main-layout/components/pedido/pedido';
-import {ProductoInterface} from '../../../layouts/main-layout/components/pag-licores/pag-licores';
+import {ModeloPedido} from '../../interfaces/modeloPedido';
+import {ProductoInterface} from '../../interfaces/productos';
 
 @Injectable({
   providedIn: 'root',

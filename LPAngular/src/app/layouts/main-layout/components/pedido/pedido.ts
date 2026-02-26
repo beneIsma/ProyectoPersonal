@@ -2,8 +2,8 @@ import {Component, OnInit, signal} from '@angular/core';
 import {Layouts} from '../../../layouts';
 import {Footer} from '../../../footer/footer';
 import {PedidoServices} from '../../../../core/services/pedido/pedido.services';
-import {ProductoInterface} from '../pag-licores/pag-licores';
 import {DatosUsuarioService} from '../../../../core/services/datos-usuario/datos-usuario.service';
+import {ModeloPedido} from '../../../../core/interfaces/modeloPedido';
 
 @Component({
   selector: 'app-pedido',
@@ -34,14 +34,4 @@ export class Pedido implements OnInit {
   ngOnInit() {
     this.pedidos.set(this.pedidoService.getPedido())
   }
-}
-
-
-export interface ModeloPedido {
-  slug:string;
-  fechaCompra:string;
-  entregaEstimada:string;
-  precioTotal:number;
-  productos: ProductoInterface[]
-  detalleAbierto?: boolean;
 }

@@ -1,5 +1,5 @@
 import {Injectable, signal} from '@angular/core';
-import {ProductoInterface} from '../../../layouts/main-layout/components/pag-licores/pag-licores';
+import {ProductoInterface} from '../../interfaces/productos';
 import {AlertasServices} from '../../utils/alertas/alertas.services';
 
 @Injectable({

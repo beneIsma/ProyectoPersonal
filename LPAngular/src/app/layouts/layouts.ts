@@ -3,6 +3,9 @@ import {Login} from './main-layout/components/admin/login/login';
 import {PanelCategoriasService} from '../core/services/panelCategorias/panel-categorias.service';
 import {RouterLink} from '@angular/router';
 import {MenuProductosMovil} from './main-layout/components/menu-productos-movil/menu-productos-movil';
+import {FormsModule} from '@angular/forms';
+import {BusquedaPorFiltroService} from '../core/services/busquedaPorFiltro/busqueda-por-filtro.service';
+import {CategoriaInterface} from '../core/interfaces/categoriaInterface';
 
 @Component({
   selector: 'app-layouts',
@@ -10,6 +13,7 @@ import {MenuProductosMovil} from './main-layout/components/menu-productos-movil/
     Login,
     RouterLink,
     MenuProductosMovil,
+    FormsModule,
   ],
   templateUrl: './layouts.html',
   styleUrl: './layouts.scss',
@@ -29,6 +33,7 @@ export class Layouts implements OnInit {
 
   constructor(
     private panelCategorias: PanelCategoriasService,
+    protected busquedaService: BusquedaPorFiltroService
   ) {
   }
 
@@ -47,9 +52,9 @@ export class Layouts implements OnInit {
       }
     })
   }
-}
 
-
-interface CategoriaInterface {
-  nombre: string;
+  valorInput: string = '';
+  mandarValor(valor: any) {
+    this.busquedaService.setValor(valor)
+  }
 }

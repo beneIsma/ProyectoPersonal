@@ -6,6 +6,13 @@
 - 576px (Muchos moviles y tablets o cuando nosotros ponemos el navegador en un lateral de la pantalla)
 - 576px para abajo (Resto de móviles)
 
+# Medidas Boostrap
+- 1400px para arriba -> XXL
+- 1200px para arriba o hasta el siguiente elemento va a tener XL
+- 992px para arriba o hasta el siguiente elemento va a tener -> LG
+- 769px para arriba o hasta el siguiente elemento va a tener -> MD
+- 576px para arriba o hasta el siguiente elemento va a tener -> SM
+
 # TemplateAngular
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.7.

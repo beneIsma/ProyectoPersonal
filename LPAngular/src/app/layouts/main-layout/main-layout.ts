@@ -5,6 +5,7 @@ import {NgClass} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import {AlertasServices} from '../../core/utils/alertas/alertas.services';
+import {BaseModal} from '../../shared/components/modals/base-modal/base-modal';
 
 @Component({
   selector: 'app-main-layout',
@@ -12,7 +13,7 @@ import {AlertasServices} from '../../core/utils/alertas/alertas.services';
     Login,
     BarraMenuMovil,
     NgClass,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.scss',

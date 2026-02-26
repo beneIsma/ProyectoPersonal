@@ -31,7 +31,6 @@ export class PasarelaDePago {
       this.router.navigate(['/pedido']);
     }else {
       this.alertasServices.mensajeNormal("Lo siento","No puedes comprar si no has seleccionado productos a tu carrito","info")
-
     }
   }
 }
