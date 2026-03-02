@@ -8,6 +8,7 @@ import {ProductoInterface} from '../../interfaces/productos';
 export class PedidoServices {
 
   pedidos = signal<ModeloPedido[]>([])
+  ultimoPedido = signal<ModeloPedido | null>(null)
 
   constructor() {
     const pedidos = localStorage.getItem('pedidos')
@@ -31,16 +32,20 @@ export class PedidoServices {
       fechaCompra: new Date().toLocaleDateString(),
       entregaEstimada: fecha.toLocaleDateString(),
       precioTotal: total,
-      productos: productos,
+      productos: productos.map(p => ({ ...p })),
     }
     this.pedidos.update(pedidos => [...pedidos, pedido]);
+    this.ultimoPedido.set(pedido);
 
     this.guardarPedidosEnLocalStorage();
 
     return pedido
   }
 
-  getPedido() {
+  getPedidos() {
     return this.pedidos();
+  }
+  getUltimoPedido() {
+    return this.ultimoPedido()
   }
 }

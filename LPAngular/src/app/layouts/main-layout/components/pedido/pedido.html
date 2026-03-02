@@ -1,5 +1,5 @@
 <div class="d-flex flex-column min-vh-100">
-  <app-layouts></app-layouts>
+  <app-layouts-secondary></app-layouts-secondary>
   <div class="d-flex flex-column flex-grow-1">
     @if (pedidos().length == 0) {
       <p class="m-0 m-auto">No hay pedidos</p>
@@ -46,8 +46,7 @@
               @if (pedidoAbierto() === p.slug) {
                 <div class="col-8">
                   <div class="d-flex flex-column">
-                    @for (p of pedidos(); track p.slug) {
-                      @for (prod of p.productos; track prod.slug) {
+                    @for (prod of p.productos; track prod.slug) {
                         <div class="row row-cols-1 row-cols-md-4 align-items-center">
                           <img src="{{prod.imagen}}" alt="imgProducto" class="imgProductoDetalles mt-1">
                           <p class="fs-5">{{prod.nombre}}</p>
@@ -60,7 +59,6 @@
                     <p class="fs-4">Total</p>
                     <p class="fs-4">{{p.precioTotal}} €</p>
                   </div>
-                    }
                   </div>
                 </div>
               } @else {

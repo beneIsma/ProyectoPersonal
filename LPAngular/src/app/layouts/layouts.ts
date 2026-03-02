@@ -6,8 +6,6 @@ import {MenuProductosMovil} from './main-layout/components/menu-productos-movil/
 import {FormsModule} from '@angular/forms';
 import {BusquedaPorFiltroService} from '../core/services/busquedaPorFiltro/busqueda-por-filtro.service';
 import {CategoriaInterface} from '../core/interfaces/categoriaInterface';
-import {CajaNotis} from './main-layout/components/caja-notis/caja-notis';
-import {ClicOutside} from '../shared/directives/clic-outside';
 
 @Component({
   selector: 'app-layouts',
@@ -36,8 +34,7 @@ export class Layouts implements OnInit {
   constructor(
     private panelCategorias: PanelCategoriasService,
     protected busquedaService: BusquedaPorFiltroService
-  ) {
-  }
+  ) {}
 
 
   categorias = signal<CategoriaInterface[]>([])

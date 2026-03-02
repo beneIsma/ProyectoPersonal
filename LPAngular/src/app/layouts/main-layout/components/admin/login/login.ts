@@ -71,10 +71,8 @@ export class Login {
     }
     this.authService.login(datosEnvio).subscribe({
       next: request => {
-        console.log("h");
         console.log(request);
-        console.log("h")
-
+        this.datosUsuarioService.guardarEmail(request.data.email)
         this.cookieService.set('token_usuario', request.data.token)
         console.log(request.data.token)
         this.cookieService.set('tokenRefresh_usuario', request.data.refreshToken);
@@ -97,11 +95,6 @@ export class Login {
       },
       complete: () => {}
     })
-  }
-  email: string = '';
-
-  saveEmail() {
-    this.datosUsuarioService.guardarEmail(this.email)
   }
 
 }

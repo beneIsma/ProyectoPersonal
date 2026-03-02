@@ -27,17 +27,23 @@ export class CarritoService {
   }
   eliminarLocalStorage(): void {
     localStorage.removeItem('carrito');
-    localStorage.clear()
   }
-  agregarProducto(producto: ProductoInterface){
-    const p = this.cart().find((p => producto.slug === p.slug));
-    if(p){
-      p.cantidad += 1
-    }else {
-      this.cart().push({...producto, cantidad: 1});
-    }
+  agregarProducto(producto: ProductoInterface) {
+    this.cart.update(cart => {
+      const existe = cart.find(p => p.slug === producto.slug);
+
+      if (existe) {
+        return cart.map(p => p.slug === producto.slug ? { ...p, cantidad: p.cantidad + 1 } : p);
+      } else {
+        return [...cart, { ...producto, cantidad: 1 }];
+      }
+    });
+
     this.guardarProductosCart();
-    this.alertasServices.mensajeProductoArgregadoAlCarrito("Good",`${producto.nombre} se ha agregado al carrito`);
+    this.alertasServices.mensajeProductoArgregadoAlCarrito(
+      "Good",
+      `${producto.nombre} se ha agregado al carrito`
+    );
   }
 
   eliminarProducto(slug:string){
@@ -45,21 +51,13 @@ export class CarritoService {
     this.guardarProductosCart();
   }
 
-  incrementarProducto(slug:string){
-    const p = this.cart().find((p) => p.slug === slug);
-    if (p) {
-      p.cantidad ++
-    }
+  incrementarProducto(slug: string) {
+    this.cart.update(cart => cart.map(p => p.slug === slug ? { ...p, cantidad: p.cantidad + 1 } : p));
     this.guardarProductosCart();
   }
 
-  decrementarProducto(slug:string){
-    const p = this.cart().find((p) => p.slug === slug);
-    if (p && p.cantidad > 1) {
-      p.cantidad --
-    }else {
-      this.eliminarProducto(slug);
-    }
+  decrementarProducto(slug: string) {
+    this.cart.update(cart => cart.map(p => p.slug === slug ? { ...p, cantidad: p.cantidad - 1 } : p).filter(p => p.cantidad > 0));
     this.guardarProductosCart();
   }
 

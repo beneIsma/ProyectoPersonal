@@ -30,6 +30,7 @@ export class PasarelaDePago {
     if (this.carritoService.cart().length >= 1) {
       this.pedidoService.crearPedido(this.carritoService.cart())
       this.carritoService.cart.set([])
+      this.carritoService.guardarProductosCart();
       this.router.navigate(['/pedido']);
     }else {
       this.alertasServices.mensajeNormal("Lo siento","No puedes comprar si no has seleccionado productos a tu carrito","info")

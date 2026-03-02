@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './base-modal.scss',
 })
 export class BaseModal {
-
 }

@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {PedidoServices} from '../../../../core/services/pedido/pedido.services';
 import {AlertasServices} from '../../../../core/utils/alertas/alertas.services';
 import {PasarelaDePago} from '../pasarela-de-pago/pasarela-de-pago';
+import {LayoutsSecondary} from '../../../layouts-secondary/layouts-secondary';
 
 @Component({
   selector: 'app-carrito',
@@ -14,6 +15,7 @@ import {PasarelaDePago} from '../pasarela-de-pago/pasarela-de-pago';
     Layouts,
     Footer,
     PasarelaDePago,
+    LayoutsSecondary,
   ],
   templateUrl: './carrito.html',
   styleUrl: './carrito.scss',
@@ -24,9 +26,6 @@ export class Carrito {
 
   constructor(
     protected carritoService: CarritoService,
-    protected pedidoService: PedidoServices,
-    private router: Router,
-    private alertasServices: AlertasServices,
   ) {
     this.carritoService.guardarProductosCart()
   }

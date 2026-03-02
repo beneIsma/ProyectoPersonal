@@ -4,12 +4,14 @@ import {Footer} from '../../../footer/footer';
 import {PedidoServices} from '../../../../core/services/pedido/pedido.services';
 import {DatosUsuarioService} from '../../../../core/services/datos-usuario/datos-usuario.service';
 import {ModeloPedido} from '../../../../core/interfaces/modeloPedido';
+import {LayoutsSecondary} from '../../../layouts-secondary/layouts-secondary';
 
 @Component({
   selector: 'app-pedido',
   imports: [
     Layouts,
     Footer,
+    LayoutsSecondary,
   ],
   templateUrl: './pedido.html',
   styleUrl: './pedido.scss',
@@ -32,6 +34,6 @@ export class Pedido implements OnInit {
 
 
   ngOnInit() {
-    this.pedidos.set(this.pedidoService.getPedido())
+    this.pedidos.set(this.pedidoService.getPedidos())
   }
 }

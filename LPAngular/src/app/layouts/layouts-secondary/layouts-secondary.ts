@@ -1,0 +1,60 @@
+import {Component, OnInit, signal} from '@angular/core';
+import {Login} from "../main-layout/components/admin/login/login";
+import {MenuProductosMovil} from "../main-layout/components/menu-productos-movil/menu-productos-movil";
+import {ReactiveFormsModule} from "@angular/forms";
+import {RouterLink} from "@angular/router";
+import {PanelCategoriasService} from '../../core/services/panelCategorias/panel-categorias.service';
+import {BusquedaPorFiltroService} from '../../core/services/busquedaPorFiltro/busqueda-por-filtro.service';
+import {CategoriaInterface} from '../../core/interfaces/categoriaInterface';
+
+@Component({
+  selector: 'app-layouts-secondary',
+    imports: [
+        Login,
+        MenuProductosMovil,
+        ReactiveFormsModule,
+        RouterLink
+    ],
+  templateUrl: './layouts-secondary.html',
+  styleUrl: './layouts-secondary.scss',
+})
+export class LayoutsSecondary implements OnInit{
+  openLogin = signal<boolean>(false);
+
+  toggleLogin = () => {
+    this.openLogin.update(state => !state);
+  }
+
+  openBarra = signal<boolean>(false);
+  toggleBarra = () => {
+    this.openBarra.update(state => !state);
+  }
+
+  constructor(
+    private panelCategorias: PanelCategoriasService,
+    protected busquedaService: BusquedaPorFiltroService
+  ) {}
+
+
+  categorias = signal<CategoriaInterface[]>([])
+
+  ngOnInit() {
+    this.panelCategorias.obtenerCategorias().subscribe({
+      next: response => {
+        console.log(response);
+        this.categorias.set(response.data)
+      },
+      error: error => {
+        console.log(error);
+      },
+      complete: () => {
+      }
+    })
+  }
+
+  valorInput: string = '';
+  mandarValor(valor: any) {
+    this.busquedaService.setValor(valor)
+  }
+
+}
