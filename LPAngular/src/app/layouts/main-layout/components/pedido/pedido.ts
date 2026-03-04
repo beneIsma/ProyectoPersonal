@@ -9,7 +9,6 @@ import {LayoutsSecondary} from '../../../layouts-secondary/layouts-secondary';
 @Component({
   selector: 'app-pedido',
   imports: [
-    Layouts,
     Footer,
     LayoutsSecondary,
   ],

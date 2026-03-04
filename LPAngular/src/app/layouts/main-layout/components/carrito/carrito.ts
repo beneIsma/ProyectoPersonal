@@ -12,7 +12,6 @@ import {LayoutsSecondary} from '../../../layouts-secondary/layouts-secondary';
 @Component({
   selector: 'app-carrito',
   imports: [
-    Layouts,
     Footer,
     PasarelaDePago,
     LayoutsSecondary,
